@@ -1,19 +1,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 const sqlite3 = require('sqlite3').verbose();
-const PATH = "../database/db_obyweb_final.db";
+const PATH = "../database/db_obyweb.db";
 
 const app = express();
 app.listen(3000)
 
 app.use(express.static("../frontend/"));
-app.use(express.json())
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 
 //  INSERIR NOVO USUÁRIO NA TABELA "COLETOR" - LETRA C NO CRUD 
-app.post('/cadastrado', urlencodedParser, (req,res)=> {
+app.post('/cadastrado', (req,res)=> {
     var db = new sqlite3.Database(PATH); // Abre o banco
 	sql = "INSERT INTO Coletor (nome, email, senha, telefone) VALUES ('" + req.body.nome + "', '" + req.body.email + "', '" + req.body.senha + "', '" + req.body.telefone + "')";
 	console.log(sql);
@@ -67,7 +67,7 @@ app.post('/atualizar_usuario/atualizado', (req,res) => {
 })
 
 //  ALTERAÇÃO NAS INFORMAÇÕES DE USUÁRIO ESPECÍFICO - LETRA U NO CRUD
-app.get('/remove_usuario', urlencodedParser, (req, res) => {
+app.get('/remove_usuario', (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); 
 	sql = "DELETE FROM Coletor WHERE ID_COLETOR='" + req.query.id_coletor + "'";
@@ -82,3 +82,23 @@ app.get('/remove_usuario', urlencodedParser, (req, res) => {
 	});
 	db.close(); // Fecha o banco
 });
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+

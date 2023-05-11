@@ -30,7 +30,7 @@ app.post('/novo_grupo', urlencodedParser, (req,res)=> {
 //  Visualização de todos os grupos - Letra R no CRUD 
 app.get('/grupos', (req,res) => {
     var db = new sqlite3.Database(PATH); // Abre o banco
-    var sql = 'SELECT Grupo_C.* , Coletor.NOME AS NOME_COLETOR \ FROM Grupo_C \ INNER JOIN Coletor ON Coletor.ID_GRUPO = Grupo_C.ID_GRUPO \ ORDER BY Grupo_C.NOME COLLATE NOCASE;';
+    var sql = 'SELECT Grupo_C.* , Coletor.NOME AS NOME_COLETOR \ FROM Grupo_C \ INNER JOIN Coletor ON Coletor.ID_GRUPO = Grupo_C.ID_GRUPO \ ORDER BY Grupo_C.ID_GRUPO COLLATE NOCASE;';
 		db.all(sql, [],  (err, rows ) => {
 			if (err) {
 				throw err;

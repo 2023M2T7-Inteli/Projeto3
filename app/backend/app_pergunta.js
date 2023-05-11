@@ -12,28 +12,6 @@ app.use(express.static("../frontend/"));
 app.use(express.json())
 
 
-/////////////////////// TABELA PROTOCOLO
-
-//  Criar novo protocolo - Letra C no CRUD 
-app.post('/novo_protocolo', urlencodedParser, (req,res)=> {
-    var db = new sqlite3.Database(PATH); // Abre o banco
-	sql = "INSERT INTO Protocolo (nome, descricao, data_limite, estado) VALUES ('" + req.body.nome + "', '" + req.body.descricao + "', '" + req.body.data_limite + "', '" + req.body.estado + "')";
-	console.log(sql);
-	db.run(sql, [],  err => {
-		if (err) {
-			throw err;
-		}
-
-	});
-	res.write('<p>GRUPO CRIADO COM SUCESSO!</p><a href="/">VOLTAR</a>');
-	db.close(); // Fecha o banco
-	res.end();
-})
-
-
-
-/////////////////////// TABELA PERGUNTA
-
 //  Criar nova pergunta - Letra C no CRUD 
 app.post('/protocolo_perguntas', urlencodedParser, (req,res)=> {
     var db = new sqlite3.Database(PATH); // Abre o banco
@@ -47,7 +25,24 @@ app.post('/protocolo_perguntas', urlencodedParser, (req,res)=> {
 			}
 		});
 	}
-	res.write('<p>GRUPO CRIADO COM SUCESSO!</p><a href="/">VOLTAR</a>');
+	res.write('<p>Perguntas adicionadas!</p><a href="/">VOLTAR</a>');
 	db.close(); // Fecha o banco
 	res.end();
 })
+
+//  DELETAR CONTA DE UM USUÁRIO - LETRA D NO CRUD
+app.get('/remove_pergunta', urlencodedParser, (req, res) => {
+	res.statusCode = 200;
+	res.setHeader('Access-Control-Allow-Origin', '*'); 
+	sql = "DELETE FROM Pergunta WHERE ID_PERGUNTA='" + req.query.id_pergunta + "'";
+	console.log(sql);
+	var db = new sqlite3.Database(PATH); // Abre o banco
+	db.run(sql, [],  err => {
+		if (err) {
+		    throw err;
+		}
+		res.write('<p>PERGUNTA REMOVIDA COM SUCESSO!</p><a href="/">VOLTAR</a>');
+		res.end();
+	});
+	db.close(); // Fecha o banco
+});

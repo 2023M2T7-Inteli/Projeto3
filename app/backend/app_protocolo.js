@@ -24,7 +24,7 @@ app.post('/criar_protocolo', (req,res)=> {
 		    throw err;
 		}	
 	});
-	res.write('<p>Campo atualizado com sucesso!</p><a href="/">Voltar</a>');
+	res.write('<p>Protocolo criado com sucesso!</p><a href="/">Voltar</a>');
 	db.close(); // Fecha o banco
 	res.end();
 })
@@ -34,7 +34,7 @@ app.post('/criar_protocolo', (req,res)=> {
 //  SELECT GERAL - LETRA R NO CRUD
 app.get('/visualizar_protocolos', (req,res)=> {
     var db = new sqlite3.Database(PATH); // Abre o banco
-    let sql = "SELECT * FROM Protocolo";
+    let sql = "SELECT * FROM PROTOCOLO";
     console.log(sql);
     db.all(sql, [],  (err, rows ) => {
         if (err) {
@@ -50,7 +50,7 @@ app.get('/visualizar_protocolos', (req,res)=> {
 //  SELECT EM USUÁRIO ESPECÍFICO - LETRA U NO CRUD
 app.get('/atualizar_protocolo', (req,res)=> {
     var db = new sqlite3.Database(PATH); // Abre o banco
-    var sql = 'SELECT * FROM Protocolo WHERE ID_PROTOCOLO =' + req.query.id_protocolo;
+    var sql = 'SELECT Protocolo.*, Pergunta.Pergunta \ FROM Protocolo \ INNER JOIN Pergunta ON Pergunta.ID_PROTOCOLO = Protocolo.ID_PROTOCOLO \ WHERE Protocolo.ID_PROTOCOLO =' + req.query.id_protocolo;
     console.log(sql);
     db.all(sql, [],  (err, rows ) => {
         if (err) {

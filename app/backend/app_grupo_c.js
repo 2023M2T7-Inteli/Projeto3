@@ -57,7 +57,7 @@ app.get('/atualizar_grupo', (req,res) => {
 app.post('/atualizar_grupo/atualizado', (req,res) => {
     var db = new sqlite3.Database(PATH); // Abre o banco
 	const ids = req.body.coletor.map(obj => parseInt(obj.id_coletor));
- 	var sql = 'UPDATE Grupo_C SET nome = "' + req.body.nome + '" WHERE ID_GRUPO=' + req.query.id_grupo + `; \ UPDATE Coletor SET ID_GRUPO = ${req.query.id_grupo} WHERE ID_COLETOR IN(${ids.join()})`
+ 	var sql = 'UPDATE Grupo_C SET nome = "' + req.body.nome + '" WHERE ID_GRUPO=' + req.body.id_grupo + `; \ UPDATE Coletor SET ID_GRUPO = ${req.query.id_grupo} WHERE ID_COLETOR IN(${ids.join()})`
 	console.log(sql)
 		db.all(sql, [],  (err, rows ) => {
 			if (err) {

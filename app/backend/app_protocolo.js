@@ -65,7 +65,7 @@ app.get('/atualizar_protocolo', (req,res)=> {
 //  ATUALIZA OS CAMPOS NA TABELA "PROTOCOLO" - LETRA U NO CRUD
 app.post('/atualizar_protocolo/atualizado', (req,res)=> {
     var db = new sqlite3.Database(PATH); // Abre o banco
-    let sql = "UPDATE Protocolo SET NOME='" + req.body.nome + "', DESCRICAO = '" + req.body.descricao + "', DATA_LIMITE = '" + req.body.data_limite + "', ESTADO = '" + req.body.estado + "' WHERE ID_PROTOCOLO = " + req.query.id_protocolo;
+    let sql = "UPDATE Protocolo SET NOME='" + req.body.nome + "', DESCRICAO = '" + req.body.descricao + "', DATA_LIMITE = '" + req.body.data_limite + "', ESTADO = '" + req.body.estado + "' WHERE ID_PROTOCOLO = " + req.body.id_protocolo;
     console.log(sql);
     db.all(sql, [],  err => {
         if (err) {

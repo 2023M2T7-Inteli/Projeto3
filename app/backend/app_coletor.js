@@ -74,7 +74,7 @@ app.get('/atualizar_coletor', (req,res) => {
 //  Alteração na informação de usuário específico - Letra U no CRUD
 app.post('/atualizar_coletor/atualizado', (req,res) => {
     var db = new sqlite3.Database(PATH); // Abre o banco
-    var sql = 'UPDATE Coletor SET nome = "' + req.body.nome + '", email ="' + req.body.email + '", senha="' + req.body.senha + '",  telefone= "' + req.body.telefone + '" WHERE ID_COLETOR=' + req.query.id_coletor;
+    var sql = 'UPDATE Coletor SET nome = "' + req.body.nome + '", email ="' + req.body.email + '", senha="' + req.body.senha + '",  telefone= "' + req.body.telefone + '" WHERE ID_COLETOR=' + req.body.id_coletor;
 		db.all(sql, [],  (err, rows ) => {
 			if (err) {
 				throw err;

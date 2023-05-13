@@ -17,7 +17,7 @@ app.post('/protocolo_perguntas', urlencodedParser, (req,res)=> {
     var db = new sqlite3.Database(PATH); // Abre o banco
 	const questoes = req.body.questoes.map(obj => obj.questao);
 	for (const questao of questoes) {
-		sql = `INSERT INTO Pergunta (pergunta, id_protocolo) VALUES ('${questao}', ${req.query.id_protocolo})`;
+		sql = `INSERT INTO Pergunta (pergunta, id_protocolo) VALUES ('${questao}', ${req.body.id_protocolo})`;
 		console.log(sql)		
 		db.run(sql, function (err) {
 			if (err) {

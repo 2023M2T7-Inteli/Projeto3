@@ -19,7 +19,9 @@
     
     /* Cores semânticas */
     --background: var(--white);
+    --title: var(--brown-dark);
     --text: var(--black);
+    --link: var(--blue);
     --sucess: var(--green-dark);
     --warning: var(--yellow);
     --error: var(--red);

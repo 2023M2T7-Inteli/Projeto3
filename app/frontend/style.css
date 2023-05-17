@@ -1,0 +1,76 @@
+/* Cores */
+:root {
+    --black: #36453A;
+    --white: #ECF6E6;
+    --gray: #B3B3B3;
+    --gray-light: #D6D6D6;
+    --gray-lighter: #D7E0D5;
+
+    --green-darker: #45702C;
+    --green-dark: #599139;
+    --green: #6AAC43;
+    --green-light: #B2DE99;
+
+    --blue: #545DAB;
+    --red: #AB3A3D;
+    --yellow: #F7F454;
+    --brown: #AB5432;
+    --brown-dark: #5E3220;
+    
+    /* Cores semânticas */
+    --background: var(--white);
+    --text: var(--black);
+    --sucess: var(--green-dark);
+    --warning: var(--yellow);
+    --error: var(--red);
+}
+
+/* Gerais */
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--background);
+}
+
+.row {
+    margin: 0;
+}
+
+.container {
+    padding: 70px 0;
+}
+
+p, li {
+    color: #36453A;
+    font-size: 14px;
+}
+
+/* Barra de navegação */
+header, .navbra {
+    background-color: var(--gray-light);
+}
+
+#nav-container {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#logo {
+    width: 100px;
+}
+
+.navbar-brand {
+    padding: 0;
+    color: var(--text)
+}
+
+.navbar-brand:hover {
+    color: var(--background);
+}
+
+#navbar-links a {
+    color: var(--text)
+}
+
+.navbar-expand-lg .navbar .nav-link {
+    padding: 1rem .8rem;
+}

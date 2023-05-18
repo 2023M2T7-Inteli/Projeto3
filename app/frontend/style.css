@@ -11,7 +11,7 @@
     --green: #6AAC43;
     --green-light: #B2DE99;
 
-    --blue: #545DAB;
+    --blue: #626CC1;
     --red: #AB3A3D;
     --yellow: #F7F454;
     --brown: #AB5432;
@@ -46,8 +46,8 @@ p, li {
     font-size: 14px;
 }
 
-/* Barra de navegação */
-header, .navbra {
+/* Cabeçalho */
+header, .navbar {
     background-color: var(--gray-light);
 }
 
@@ -75,4 +75,39 @@ header, .navbra {
 
 .navbar-expand-lg .navbar .nav-link {
     padding: 1rem .8rem;
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--black);
+    text-align: center;
+}
+
+#copy-area .container {
+    padding: 10px 0;
+}
+
+footer #logo {
+    width: 150px;
+    border-bottom: 2px solid var(--white);
+}
+
+footer p {
+    font-size: 0.75rem;
+    color: var(--white);
+
+}
+
+a {
+    color: var(--link);
+}
+
+.footer-brand {
+    padding: 0;
+    color: var(--text)
+}
+
+.footer-brand:hover {
+    color: var(--background);
 }

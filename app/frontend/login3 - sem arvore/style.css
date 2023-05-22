@@ -142,20 +142,3 @@ form .row input:focus {
     color: var(--black);
     background: var(--green-darker); 
 }
-
-.arvore{
-    display:none;
-}
-
-@media(max-width:450px) {
-    .wrapper{
-        background: var(--white);
-/*    }
-    body{
-        background-color: var(--white);
-        background: var(--white);
-    }
-    arvore{
-        display:block;    */     
-    }
-}

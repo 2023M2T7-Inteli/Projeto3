@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <title>Home</title>
+    
+</head>
+
+
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container" id="nav-container">
+            <nav class="navbar navbar-expand-lg fixed top">
+                <a href="" class="navbar-brand">
+                    <img id="logo" src="logo.svg" alt="Obyweb logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="toggle-navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" id="home-menu">Home</a>
+                        <a class="nav-item nav-link" id="about-menu">Sobre</a>
+                        <a class="nav-item nav-link" id="services-menu">Serviços</a>
+                        <a class="nav-item nav-link" id="portfolio-menu">Portfólio</a>
+                        <a class="nav-item nav-link" id="contato-menu">Contato</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="search-container">
+        <input type="text" placeholder="Digite sua pesquisa">
+        <button type="submit">Pesquisar</button>
+    </div>
+
+    <div class="container">
+        <div class="kanban">
+            <div class="column first-column">
+                <div class="column-title"></div>
+                <span class="add-card">+</span>
+            </div>
+            <div class="column">
+                <div class="column-title">Protocolos Enviados</div>
+                <div class="card">Protocolo 1</div>
+            </div>
+            <div class="column">
+                <div class="column-title">Protocolos Recebidos </div>
+                <div class="card">Protocolo 2</div>
+                <div class="card">Protocolo 3</div>
+            </div>
+            </div>
+        </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div id="contact-area"></div>
+    </footer>
+
+
+
+    <script>
+        const url = '/';
+        fetch(url)
+    </script>
+
+</html>

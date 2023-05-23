@@ -77,8 +77,8 @@ header, .navbra {
     padding: 1rem .8rem;
 }
 .container2{
-    max-width: 440px;
-    margin: 170px auto;
+    max-width: 450px;
+    margin: 80px auto;
     padding: 0 20px;
 }
 
@@ -89,8 +89,9 @@ header, .navbra {
 }
 
 .wrapper form{
-    padding: 30px 20px 25px 20px;
-    margin: 35px;
+    padding: 20px 20px 25px 20px;
+    margin: 20px;
+    margin-top: 5px;
 }
 
 .wrapper form .row{
@@ -105,8 +106,12 @@ header, .navbra {
     width: 100%;
     outline: none;
     padding-left: 60px;
-    border-radius: 5px;
-    border: 1px solid var(--green) ;
+    border-radius: 3px;
+    border: 1px solid var(--gray-lighter) ;
+}
+
+input{
+    background-color: var(--background)
 }
 
 form .row input:focus {
@@ -132,30 +137,56 @@ form .row input:focus {
     display: flex;
     justify-content: center;
     padding-top: 30px;
-    padding-bottom: 10px;
 }
 
+.aumentaimg{
+    width: 65%;
+    height: auto;
+}
 .wrapper form .button input{
     padding-left: 0px;
     cursor: pointer;
     border:1px;
     color: var(--black);
     background: var(--green-darker); 
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
 .arvore{
     display:none;
+    width: 50%;
+    height: auto;
+
 }
 
 @media(max-width:450px) {
     .wrapper{
-        background: var(--white);
-/*    }
+        background: #ffffff;
+    }
     body{
-        background-color: var(--white);
-        background: var(--white);
+        background-color: #ffffff;
+        background: #ffffff;
     }
-    arvore{
-        display:block;    */     
+    input{
+        background-color: var(--gray-light);
     }
+    hr{
+        display: :none;
+    }
+    .arvore{
+        display: flex;
+        width: 100%;
+    }
+    .container2 {
+        margin: 5px auto;
+    }
+    #logo{
+        display: none;
+    }
+    #nav-container{
+        height: 40px;
+    }
+
 }

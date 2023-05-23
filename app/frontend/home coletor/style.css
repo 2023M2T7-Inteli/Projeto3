@@ -113,7 +113,7 @@ a {
 }
 
 .flex-container{
-    margin-top: 10%;
+    margin-top: 5%;
     width: 100%;
     height:auto;
     display: flex;
@@ -122,12 +122,22 @@ a {
 
 .flex-box{
     width: 40%;
-    height: 100px;
-    background: linear-gradient(var(--green), var(--brown-dark));
+    height: 110px;
     border-radius: 20px;
     margin:10px;
+    background-image: url("img/karite.png");
+    color:var(--brown-dark);
+    text-align: center;
+    line-height: 100px;
+
 }
 
-h4{
+#emaberto{
     margin-top: 20%;
+}
+
+img {
+    position: relative;
+    left: 50%;
+    top: 50%;
 }

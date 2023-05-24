@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <title>Inicial</title>
+</head>
+<body>
+    <script src="script.js"></script>
+    
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container" id="nav-container">
+            <nav class="navbar navbar-expand-lg fixed-top">
+                <a href="#" class="navbar-brand">
+                    <img id="logo" src="img/logo.svg" alt="Obyweb logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" id="home-menu">Home</a>
+                        <a class="nav-item nav-link" id="about-menu">Sobre</a>
+                        <a class="nav-item nav-link" id="portfolio-menu">Reportar Erro</a>
+                        <a class="nav-item nav-link" id="contato-menu">Contato</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div id="main" class="row">
+            <div id="controller" class="col-4 mx-auto">
+                <div id="questions-form" class="justify-content-center text-center">
+                    <h2>Insira as perguntas</h2>
+                </div>
+                <hr class="hr hr-blurry">
+                <div class="text-center">
+                    <button id="add_question" onclick="add_question()">Adicionar pergunta</button>
+                </div>
+            </div>
+
+            <div id="preview" class="col-8 mx-auto justify-content-center text-center">
+                <div id="name">
+                    <h2>Nome do Protocolo</h2>
+                </div>
+                <div id="desc" class="justify-content-center">
+                    <p class="text-center">Descrição do protocolo. Aqui, o pesquisador pode deixar anotações importantes para que os usuários não se esqueçam de algum detalhe na hora do envio de protocolo.</p>
+                </div>
+                <hr class="hr hr-blurry">
+                <div id="questions-preview">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <div id="contact-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="" class="footer-brand">
+                            <img id="logo" class="img-responsive" src="img/logo-branco.svg" alt="Obyweb logo">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="copy-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Desenvolvido por Obyweb - <a target="_blank" href="https://www.inteli.edu.br">Instituto de Tecnologia e Liderança</a> &copy; 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script>
+        const url = '/';
+        fetch(url)
+    </script>
+
+</body>
+</html>

@@ -2,6 +2,7 @@
 :root {
     --black: #36453A;
     --white: #ECF6E6;
+    --gray-dark: #4F6555;
     --gray: #B3B3B3;
     --gray-light: #D6D6D6;
     --gray-lighter: #D7E0D5;
@@ -77,6 +78,79 @@ header, .navbar {
     padding: 1rem .8rem;
 }
 
+
+/* Main */
+h2 {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#controller h2 {
+    color: var(--white);
+}
+
+#controller {
+    background-color: var(--gray-dark);
+    margin: 0;
+    padding-top: 5em;
+}
+
+#preview {
+    padding-top: 5rem;
+}
+
+main p {
+    width: 75%;
+    margin: 0 auto;
+}
+
+i {
+    fill: var(--black);
+}
+
+#controller hr {
+    border-top: 1px solid var(--gray);
+    margin: 3rem 0;
+}
+
+#add_question, #controller input{
+    height: 36px;
+    background-color: var(--gray-lighter);
+    border: 1px solid var(--gray-lighter);
+    border-radius: 5px;
+}
+
+#controller input {
+    color: var(--white);
+}
+
+button:not(#add_question) {
+    background-color: var(--gray-dark);
+    border: 1px solid var(--gray-dark);
+    color: var(--white);
+}
+
+button:focus {
+    outline: 0;
+}
+
+#controller input{
+    background-color: var(--gray-dark);
+    width: 75%;
+}
+
+#add_question{
+    margin-bottom: 20rem;
+}
+
+#add_question:hover{
+    background-color: var(--gray);
+    border: 2px solid var(--gray);
+    border-radius: 5px;
+}
+
+#add_question:focus{
+    outline: 0;
+}
 
 /* Footer */
 footer {

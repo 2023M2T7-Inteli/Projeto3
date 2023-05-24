@@ -15,9 +15,6 @@ function add_question() {
     input.type = 'text';
     input.placeholder = 'Escreva a questão...';
     var preview_question = "preview-question" + index
-    input.oninput = function() {
-        update_preview(input.id, preview_question)
-    }
     div.appendChild(input);
 
     var button = document.createElement('button');
@@ -29,8 +26,37 @@ function add_question() {
     };
     div.appendChild(button);
 
+    var input_type = document.createElement('select')
+    input_type.name = "input_type"
+
+    var types = ['text', 'date', 'number', 'alternativa']
+
+    for(let i = 0; i < types.length; i++){
+        var option = document.createElement('option')
+        option.value = types[i]
+        option.textContent = types[i] 
+
+        input_type.appendChild(option)
+    }
+
+    div.appendChild(input_type)
+
     document.getElementById('questions-form').appendChild(div);
     atualizarIDs()
+
+    input.oninput = function() {
+        update_preview(input.id, preview_question, input_type.value)
+    }
+
+    input_type.oninput = function() {
+        update_preview(input.id, preview_question, input_type.value)
+        if(input_type === "alternativa") {
+            var input = document.createElement('select');
+            input_type.name = "alternatives"
+
+            var question_alternatives = []
+        }
+    }
 }
 
 function atualizarIDs() {
@@ -48,7 +74,7 @@ function deletar_questaoespecifica(button, preview_question) {
     atualizarIDs();
 }
 
-function update_preview(question, previewDivId) {
+function update_preview(question, previewDivId, input_type) {
     var input = document.getElementById(question);
     var previewDiv = document.getElementById(previewDivId);
 
@@ -65,4 +91,10 @@ function update_preview(question, previewDivId) {
 
     previewDiv.innerHTML = '';
     previewDiv.appendChild(h3);
+
+    var input_answer = document.createElement('input')
+    if(input_type != 'alternativa'){
+        input_answer.type = input_type
+        previewDiv.appendChild(input_answer)
+    }
 }

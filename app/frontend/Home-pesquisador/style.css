@@ -1,0 +1,241 @@
+/* Cores */
+:root {
+    --black: #36453A;
+    --white: #ECF6E6;
+    --gray: #B3B3B3;
+    --gray-light: #D6D6D6;
+    --gray-lighter: #D7E0D5;
+
+    --green-darker: #45702C;
+    --green-dark: #599139;
+    --green: #6AAC43;
+    --green-light: #B2DE99;
+
+    --blue: #545DAB;
+    --red: #AB3A3D;
+    --yellow: #F7F454;
+    --brown: #AB5432;
+    --brown-dark: #5E3220;
+    
+    /* Cores semânticas */
+    --background: var(--white);
+    --title: var(--brown-dark);
+    --text: var(--black);
+    --link: var(--blue);
+    --sucess: var(--green-dark);
+    --warning: var(--yellow);
+    --error: var(--red);
+}
+
+/* Gerais */
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--background);
+}
+
+.row {
+    margin: 0;
+}
+
+.container {
+    padding: 70px 0;
+}
+
+p, li {
+    color: #36453A;
+    font-size: 14px;
+}
+
+/* Barra de navegação */
+header, .navbra {
+    background-color: var(--gray-light);
+}
+
+#nav-container {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#logo {
+    width: 100px;
+}
+
+.navbar-brand {
+    padding: 0;
+    color: var(--text)
+}
+
+.navbar-brand:hover {
+    color: var(--background);
+}
+
+#navbar-links a {
+    color: var(--text)
+}
+
+.navbar-expand-lg .navbar .nav-link {
+    padding: 1rem .8rem;
+}
+
+
+
+
+/*BARRA DE PESQUISA */ 
+
+.container{
+    text-align: center;
+}
+.search-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .search-container input[type="text"] {
+    flex: 1;
+    align-items: center;
+    border: none;
+    padding: 5px;
+    font-size: 16px;
+  }
+  .search-container button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    align-items: center;
+  }
+
+
+/* KANBAN 
+.kanban {
+  display: flex;
+}
+
+.column-title {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.add-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 100px;
+  color: #36453A;
+  cursor: pointer;
+}
+
+.first-column .add-card {
+  top: 50%;
+  left: 25%;
+  transform: translate(0, -50%);
+  background-color: blue;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.card {
+  margin-bottom: 10px;
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 5px;
+} */
+
+
+/*NOVO*/
+
+
+
+/* .column {
+  flex: 1;
+  margin: 10px;
+  padding: 10px;
+  background-color: #D6D6D6;;
+  border-radius: 5px;
+  height: 1000px;
+
+
+} */
+
+/* Estilos para dispositivos com largura de tela menor ou igual a 600 pixels */
+@media (max-width: 600px) {
+  /* Estilos específicos para telas pequenas */
+  .kanban {
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    gap: 80px 0;
+
+    margin:18px;
+    margin-top: 100px;
+
+    padding: 16px;
+
+   }
+
+  .column {
+    flex: 1;
+    padding: 10px;
+    background-color: #ccc;
+    border-radius: 10px;
+    height: 700px;
+    
+    padding: 24px;
+  }  
+}
+
+
+/* Estilos para dispositivos com largura de tela entre 601 e 1024 pixels */
+@media (min-width: 601px) and (max-width: 1024px) {
+
+  .kanban {
+    display:flex;
+    flex-wrap: wrap;
+    margin:18px;
+    margin-top: 20px;
+   }
+
+  .column {
+    flex: 1;
+    margin: 10px;
+    margin-top: 80px;
+    padding: 10px;
+    background-color: #ccc;
+    border-radius: 10px;
+    height: 700px;
+  }  
+}
+
+/* Estilos para dispositivos com largura de tela maior que 1024 pixels */
+@media (min-width: 1025px) {
+  .kanban {
+    display:flex;
+    flex-wrap: wrap;
+    margin:18px;
+    margin-top: 20px;
+   }
+
+  .column {
+    flex: 1;
+    margin: 10px;
+    margin-top: 80px;
+    padding: 10px;
+    background-color: #ccc;
+    border-radius: 10px;
+    height: 700px;
+  }  
+}

@@ -141,3 +141,43 @@ img {
     left: 50%;
     top: 50%;
 }
+
+/*menu*/
+#nav2{
+    background-color: rgba(16, 16, 16, .5) ;
+    width: 350px;
+    height: 100%;
+    position:absolute;
+    left: -350px;
+    transition: all .5s;
+}
+input[type="checkbox"]:checked ~ nav{
+    transform: translateX(350px);
+}
+ul{
+    top:70px;
+    position:absolute;
+    width: 100%;
+}
+i{
+    width: 60px;
+}
+
+input[type="checkbox"]{
+    display:none
+}
+
+a{
+    display: block;
+    padding: 20px 5px;
+    color: white;
+}
+a:hover{
+    background-color: rgba(176, 224, 230);
+    color: black;
+}
+label{
+    padding: 15px;
+    position: absolute;
+    z-index: 1;
+}

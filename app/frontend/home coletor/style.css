@@ -40,7 +40,15 @@ body {
 .container {
     padding: 70px 0;
 }
-
+.container2 {
+    max-width: 389px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+.wrapper {
+    width: 100%;
+    border-radius: 5px;
+}
 p, li {
     color: #36453A;
     font-size: 14px;

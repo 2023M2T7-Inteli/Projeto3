@@ -11,10 +11,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-    <title>Inicial</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <title>Criar protocolo</title>
 </head>
 <body>
     <script src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     
     <!-- Cabeçalho -->
     <header>
@@ -60,9 +64,47 @@
                 <hr class="hr hr-blurry">
                 <div id="questions-preview">
                 </div>
+
+                <button type="button" id="send-form" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Enviar formulário</button>
+            </div>
+        </div>
+
+        <!-- O Modal -->
+        <div class="modal align-items-center" id="myModal">
+            <div class="modal-dialog">
+            <div class="modal-content">
+        
+                <!-- Cabeçalho do Modal -->
+                <div class="modal-header">
+                <h4 class="modal-title">Seleção de grupos</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+        
+                <!-- Corpo do Modal -->
+                <div class="modal-body modal-body-scroll">
+                    <p>Selecione para quais grupos este protocolo deve ser enviado:</p>
+                    <br>
+                    <form action="\index.html" method="post">
+                        <p><input type="checkbox" name="grupos" id="grupo1">Região 1</p>
+                        <p><input type="checkbox" name="grupos" id="grupo2">Região 2</p>
+                        <p><input type="checkbox" name="grupos" id="grupo2">Região 3</p>
+
+                        <p><button id="send-groups" type="submit">Enviar</button></p>
+                    </form>
+                </div>
             </div>
         </div>
     </main>
+
+
+
+
+
+
+
+
+
+
 
     <!-- Rodapé -->
     <footer>

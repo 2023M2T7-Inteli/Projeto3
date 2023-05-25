@@ -42,7 +42,6 @@ body {
 }
 .container2 {
     max-width: 389px;
-    margin: 80px auto;
     padding: 0 20px;
 }
 .wrapper {
@@ -134,14 +133,15 @@ a {
     border-radius: 20px;
     margin:10px;
     background-image: url("img/karite.png");
-    color:var(--brown-dark);
+    color: var(--green);
     text-align: center;
-    line-height: 100px;
+    line-height: 180px;
+    font-weight: 900;
 
 }
 
 #emaberto{
-    margin-top: 20%;
+    margin-top: 10%;
 }
 
 img {

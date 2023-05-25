@@ -152,6 +152,11 @@ button:focus {
     outline: 0;
 }
 
+#preview h3 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
 /* Footer */
 footer {
     background-color: var(--black);

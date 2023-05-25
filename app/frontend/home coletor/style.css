@@ -40,7 +40,14 @@ body {
 .container {
     padding: 70px 0;
 }
-
+.container2 {
+    max-width: 389px;
+    padding: 0 20px;
+}
+.wrapper {
+    width: 100%;
+    border-radius: 5px;
+}
 p, li {
     color: #36453A;
     font-size: 14px;
@@ -126,14 +133,15 @@ a {
     border-radius: 20px;
     margin:10px;
     background-image: url("img/karite.png");
-    color:var(--brown-dark);
+    color: var(--green);
     text-align: center;
-    line-height: 100px;
+    line-height: 180px;
+    font-weight: 900;
 
 }
 
 #emaberto{
-    margin-top: 20%;
+    margin-top: 10%;
 }
 
 img {

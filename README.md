@@ -95,22 +95,22 @@ deve possuir o valor "node app.js".
 - 1.2 - 11/05/2023
   - Atualização dos endpoints no backend
   - Adição do WAD (Web Aplication Document)
-- 1.2 - 12/05/2023
+- 1.3 - 12/05/2023
   - Atualização do WAD (Web Aplication Document)
-- 1.2 - 17/05/2023
+- 1.4 - 17/05/2023
   - Adição das variáveis de cores base no css
   - Adição do arquivo html e css referentes ao footer e header do site
-- 1.1 - 18/05/2023
+- 1.5- 18/05/2023
   - Adição da tela de login
-- 1.1 - 22/05/2023
+- 1.6 - 22/05/2023
   - Adição da tela do coletor
-- 1.1 - 23/05/2023
+- 1.7 - 23/05/2023
   - Atualização da tela de login
   - Atualização da tela do coletor
-- 1.1 - 24/05/2023
+- 1.8 - 24/05/2023
   - Adição do menu lateral da tela do coletor
   - Adição da tela de criar protocolos
-- 1.3- 26/05/2023
+- 1.9- 26/05/2023
   - Revisão do front-end
   - Atualização do WAD (Web Aplication Document)
 

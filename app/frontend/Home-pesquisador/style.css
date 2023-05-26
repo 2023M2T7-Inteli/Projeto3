@@ -174,6 +174,8 @@ header, .navbra {
 @media (max-width: 600px) {
   /* Estilos específicos para telas pequenas */
   .kanban {
+    background-color: var(--gray-lighter);
+    border-radius: 10px;
     display:flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -187,6 +189,13 @@ header, .navbra {
 
    }
 
+   #funcionalities {
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 15px;
+
+  }
+
   .column {
     flex: 1;
     padding: 10px;
@@ -196,6 +205,51 @@ header, .navbra {
     
     padding: 24px;
   }  
+
+  .button {
+    border-radius: 4px;
+    background-color: #599139;
+    color: white;
+    padding: 7px;
+  }
+
+  #img-protocol1 {
+
+    vertical-align: middle;
+    border-style: none;
+
+  }
+
+ 
+
+  .card {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+
+  }
+
+  .card-content {
+    margin-top: 10px;
+    flex-direction: row;
+  }
+
+  .card-title{
+    margin: 0 auto;
+  }
+
+  .card-date {
+    margin-bottom: 0;
+    text-align: middle;
+    font-size: 12px;
+    margin-left: 5px;
+    background-color: #e8f9df;
+    border-radius: 4px;
+    padding: 1px;
+    
+  }
 }
 
 
@@ -207,7 +261,17 @@ header, .navbra {
     flex-wrap: wrap;
     margin:18px;
     margin-top: 20px;
+    background-color: var(--gray-lighter);
+    border-radius: 10px;
    }
+
+
+   #funcionalities {
+    text-align: left;
+    padding-left: 20px;
+    padding-top: 70px;
+
+  }
 
   .column {
     flex: 1;
@@ -217,17 +281,76 @@ header, .navbra {
     background-color: #ccc;
     border-radius: 10px;
     height: 700px;
-  }  
+  } 
+  
+  #img-protocol1 {
+
+    vertical-align: middle;
+    border-style: none;
+
+  }
+
+  .card {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+
+  }
+
+  .card-content {
+    margin-top: 10px;
+    flex-direction: row;
+  }
+
+  .card-title{
+    margin: 0 auto;
+  }
+
+  .card-date {
+    margin-bottom: 0;
+    text-align: middle;
+    font-size: 12px;
+    margin-left: 5px;
+    background-color: #e8f9df;
+    border-radius: 4px;
+    padding: 2px;
+    
+  }
+
+
+
+  .card-title {
+    margin-top: 0;
+  }
+
+  .button {
+    border-radius: 4px;
+    background-color: #599139;
+    color: white;
+    padding: 7px;
+  }
 }
 
 /* Estilos para dispositivos com largura de tela maior que 1024 pixels */
-@media (min-width: 1025px) {
+@media (min-width: 1025px) and (max-width: 1920px) {
   .kanban {
     display:flex;
     flex-wrap: wrap;
     margin:18px;
     margin-top: 20px;
+    background-color: var(--gray-lighter);
+    border-radius: 10px;
    }
+
+
+   #funcionalities {
+    text-align: left;
+    padding-left: 25px;
+    padding-top: 70px;
+    
+  }
 
   .column {
     flex: 1;
@@ -238,4 +361,67 @@ header, .navbra {
     border-radius: 10px;
     height: 700px;
   }  
+
+  #img-protocol {
+    #img-protocol1 {
+
+      vertical-align: middle;
+      border-style: none;
+  
+    }
+  }
+
+  .card {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+
+  }
+
+  .card {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+
+  }
+
+  .card-content {
+    margin-top: 10px;
+    flex-direction: row;
+  }
+
+  .card-title{
+    margin: 0 auto;
+  }
+
+  .card-date {
+    margin-bottom: 0;
+    text-align: middle;
+    font-size: 12px;
+    margin-left: 5px;
+    background-color: #e8f9df;
+    border-radius: 4px;
+    padding: 2px;
+    
+  }
+
+
+  #create-protocols {
+    border-radius: 7px;
+    background-color: #6AAC43;
+    color: var(--white)
+
+  }
+
+
+  .button {
+    border-radius: 4px;
+    background-color: #599139;
+    color: white;
+    padding: 7px;
+  }
 }

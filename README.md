@@ -20,24 +20,12 @@
 
 ## 📝 Descrição
 
-A partir da proximidade com a natureza e o interesse em inovar, a Natura realiza diversas coletas de dados sobre as matérias primas que usam. Parte desse processo conta com a participação de agroextrativistas que fornecem os dados através de papel impresso ou conversas com os representantes da Natura. Embora sejam meios funcionais de recolher informações, a empresa deseja digitalizar os meios de adquirir esses dados, por meio de protocolos amigáveis e acessíveis ao público parceiro.
-A solução proposta consiste em criar duas interfaces. A primeira interface será destinada ao analista, que poderá configurar o protocolo de cada pesquisa, definir os dados que deseja coletar, armazená-los e visualizá-los em um banco de dados organizado. A segunda interface será destinada aos agricultores parceiros, que poderão registrar de forma offline os dados requisitados por meio de um celular e sincronizá-los ao conectar à internet.
+A partir da proximidade com a natureza e o interesse em inovar, a Natura realiza diversas coletas de dados sobre as matérias primas que usam. Parte desse processo conta com a participação de agroextrativistas que fornecem os dados através de papel impresso ou conversas com os representantes da Natura. Embora sejam meios funcionais de recolher informações, a empresa deseja digitalizar os meios de adquirir esses dados, por meio de protocolos amigáveis e acessíveis ao público parceiro.<br>
+A solução proposta consiste em criar duas interfaces. A primeira interface será destinada ao analista, que poderá configurar o protocolo de cada pesquisa, definir os dados que deseja coletar, armazená-los e visualizá-los em um banco de dados organizado. A segunda interface será destinada aos agricultores parceiros, que poderão registrar de forma offline os dados requisitados por meio de um celular e sincronizá-los ao conectar à internet.<br>  
 Será possível coletar dados sobre local da cooperativa ou fazenda, local da coleta, nome popular da espécie coletada, estágio da coleta, fotos dos estágios atuais e anteriores, clima, temperatura, características do solo, tipo de processamento (ex: amostra triturada, seca, in natura) e observações. Esses dados serão armazenados em um banco de dados, facilitando a análise posterior.
 O programa será desenvolvido usando programação em JavaScript, Node.js, HTML e CSS e usando as ferramentas CodeSandBox, VS Code, DB Schema e DB Browser for SQLite.
 
 ## 📁 Estrutura de pastas
-
-```
-Alunos inteli (remover essa observação do readme.md após leitura e execução):
-
-Supondo que você é da Turma 4 e Projeto 5, substitua:
-
-T(NUMERO_DA_TURMA)_G(NUMERO_DO_GRUPO)_V(VERSÃO)_Web_application_document.pdf
-por
-T4_G5_V01_Web_application_document.pdf
-
-Faça o mesmo para a documentação em formato DOCX.
-```
 
 |--> documentos<br>
 &emsp;| --> outros <br>
@@ -97,18 +85,34 @@ deve possuir o valor "node app.js".
 
 ## 🗃 Histórico de lançamentos
 
-- 0.2.1 - 25/01/2022
-  - Atualização de documentos (código do módulo permanece inalterado).
-- 0.2.0 - 15/01/2022
-  - Remove `setDefaultXYZ()`
-  - Adiciona `init()`
-- 0.1.1 - 11/01/2022
-  - Crash quando chama `baz()`
-- 0.1.0 - 10/01/2022
-  - O primeiro lançamento adequado
-  - Renomeia `foo()` para `bar()`
-- 0.0.1 - 01/01/2022
-  - Trabalho em andamento
+- 1.0 - 14/04/2023
+  - Adição do WAD (Web Aplication Document)
+- 1.1 - 01/05/2023
+  - Atualização do WAD (Web Aplication Document)
+- 1.1 - 09/05/2023
+  - Adição da pasta backend
+  - Adição do modelo lógico do banco de dados
+- 1.2 - 11/05/2023
+  - Atualização dos endpoints no backend
+  - Adição do WAD (Web Aplication Document)
+- 1.2 - 12/05/2023
+  - Atualização do WAD (Web Aplication Document)
+- 1.2 - 17/05/2023
+  - Adição das variáveis de cores base no css
+  - Adição do arquivo html e css referentes ao footer e header do site
+- 1.1 - 18/05/2023
+  - Adição da tela de login
+- 1.1 - 22/05/2023
+  - Adição da tela do coletor
+- 1.1 - 23/05/2023
+  - Atualização da tela de login
+  - Atualização da tela do coletor
+- 1.1 - 24/05/2023
+  - Adição do menu lateral da tela do coletor
+  - Adição da tela de criar protocolos
+- 1.3- 26/05/2023
+  - Revisão do front-end
+  - Atualização do WAD (Web Aplication Document)
 
 ## 📋 Licença/License
 

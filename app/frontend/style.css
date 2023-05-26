@@ -123,12 +123,6 @@ i {
     color: var(--white);
 }
 
-button:not(#add_question) {
-    background-color: var(--gray-dark);
-    border: 1px solid var(--gray-dark);
-    color: var(--white);
-}
-
 button:focus {
     outline: 0;
 }
@@ -155,6 +149,38 @@ button:focus {
 #preview h3 {
     margin-top: 2.5rem;
     margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+#preview input {
+    height: 2.5rem;
+    width: 40%;
+    border-radius: 5px;
+    border: 1px solid var(--gray-dark);
+    background-color: var(--white);
+}
+
+.modal-body input{
+    font-size: 1em;
+}
+
+.modal-body p{
+    margin-bottom: 0.5rem;
+}
+
+#send-form, #send-groups {
+    width: 100%;
+    margin: auto;
+    margin-top: 3rem;
+    background-color: var(--green-dark);
+    border: 1px solid var(--green-dark);
+    color: var(--white);
+    height: 2.5rem;
+    border-radius: 5px;
+}
+
+#send-form {
+    width: 30%;
 }
 
 /* Footer */

@@ -28,6 +28,10 @@
     --error: var(--red);
 }
 
+select {
+    display: block;
+}
+
 /* Gerais */
 body {
     font-family: 'Quicksand', sans-serif;

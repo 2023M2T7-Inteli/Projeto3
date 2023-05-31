@@ -196,3 +196,10 @@ li {
     left: 4px;
     top:4px;
 }
+h4{
+    padding-top: 2rem;
+}
+#questao{
+    align-items: center;
+    justify-content: center;
+}

@@ -1,17 +1,3 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const urlencodedParser = bodyParser.urlencoded({ extended: false })
-
-const sqlite3 = require('sqlite3').verbose();
-const PATH = "../database/db_obyweb.db";
-
-const app = express();
-app.listen(3000)
-
-app.use(express.static("../frontend/"));
-app.use(express.json())
-
-
 //  Criar nova pergunta - Letra C no CRUD 
 app.post('/protocolo_perguntas', urlencodedParser, (req,res)=> {
     var db = new sqlite3.Database(PATH); // Abre o banco

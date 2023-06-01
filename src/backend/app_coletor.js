@@ -1,12 +1,11 @@
-const express = require('express');
+var express = require("express");
+var app = express();
+var port = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 const sqlite3 = require('sqlite3').verbose();
 const PATH = "../database/db_obyweb.db";
-
-const app = express();
-app.listen(3000)
 
 app.use(express.static("../frontend/"));
 app.use(express.json())
@@ -30,6 +29,7 @@ app.post('/cadastrado_coletor', urlencodedParser, (req,res)=> {
 
 //  Visualização de todos os coletores - Letra R no CRUD 
 app.get('/coletores', (req,res) => {
+	res.setHeader('Access-Control-Allow-Origin', '*');
     var db = new sqlite3.Database(PATH); // Abre o banco
     var sql = 'SELECT * FROM Coletor \ ORDER BY Coletor.nome COLLATE NOCASE;';
 		db.all(sql, [],  (err, rows ) => {
@@ -43,16 +43,19 @@ app.get('/coletores', (req,res) => {
 
 //  Sistema de login - Letra R no CRUD 
 app.post('/login_coletor', (req,res) => {
-    var db = new sqlite3.Database(PATH); // Abre o banco
+    var db = new sqlite3.Database(PATH); 
+	console.log(req.body);// Abre o banco
 	var sql = 'SELECT * FROM Coletor WHERE EMAIL= "'  + req.body.email + '" AND SENHA= "' + req.body.senha  + '"';
+	console.log(sql)
 	db.all(sql, [],  (err, rows ) => {
 		if (err) {
 			throw err;
 		}
 		if (rows.length > 0) {
-            res.json({ message: 'Logado com sucesso.' });
+            return res.json({ message: 'Logado com sucesso.' });
+			
         } else {
-            return res.status(404).json({ message: 'Usuário não encontrado.' });
+            return res.status(500).json({ message: 'Usuário não encontrado.' });
         }
 	});
 	db.close(); // Fecha o banco
@@ -100,3 +103,9 @@ app.get('/remove_coletor', urlencodedParser, (req, res) => {
 	});
 	db.close(); // Fecha o banco
 });
+
+app.listen(port, () =>
+{
+    console.log(`Servidor rodando na porta ${port}`);
+})
+

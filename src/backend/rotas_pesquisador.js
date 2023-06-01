@@ -1,17 +1,3 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const urlencodedParser = bodyParser.urlencoded({ extended: false })
-
-const sqlite3 = require('sqlite3').verbose();
-const PATH = "../database/db_obyweb.db";
-
-const app = express();
-app.listen(3000)
-
-app.use(express.static("../frontend/"));
-app.use(express.json())
-
-
 //  Inserir novo usuário na tabela "PESQUISADOR" - Letra C no CRUD 
 app.post('/cadastrado_pesquisador', urlencodedParser, (req,res)=> {
     var db = new sqlite3.Database(PATH); // Abre o banco

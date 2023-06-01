@@ -12,6 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <title>Inicial</title>
 </head>
 
@@ -20,20 +21,20 @@
   <header>
     <div class="container" id="nav-container">
       <nav class="navbar navbar-expand-lg fixed top">
-        <a href="" class="navbar-brand">
+        <a href="#" class="navbar-brand">
           <img id="logo" src="img/logo.svg" alt="Obyweb logo">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbar-links"
+        <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links"
           aria-controls="navbar-links" aria-expanded="false" aria-label="toggle-navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
           <div class="navbar-nav">
-            <a class="nav-item nav-link" id="home-menu">Home</a>
-            <a class="nav-item nav-link" id="about-menu">Sobre</a>
-            <a class="nav-item nav-link" id="services-menu">Serviços</a>
-            <a class="nav-item nav-link" id="portfolio-menu">Portfólio</a>
-            <a class="nav-item nav-link" id="contato-menu">Contato</a>
+            <a class="nav-item nav-link" href="#" id="home-menu">Home</a>
+            <a class="nav-item nav-link" href="#" id="about-menu">Sobre</a>
+            <a class="nav-item nav-link" href="#" id="services-menu">Serviços</a>
+            <a class="nav-item nav-link" href="#" id="portfolio-menu">Portfólio</a>
+            <a class="nav-item nav-link" href="#" id="contato-menu">Contato</a>
           </div>
         </div>
       </nav>
@@ -42,21 +43,22 @@
   <div class="container2">
     <div class="wrapper">
       <div class="img">
-      <img class="aumentaimg" src="img/logo.svg" alt="Obyweb logo">
+        <img class="aumentaimg" src="img/logo.svg" alt="Obyweb logo">
       </div>
-      <form action="#">
+      <form id="login-form" action="#">
         <div class="row">
           <i class="bi bi-person-fill"></i>
-          <input type="text" placeholder="e-mail" required>
+          <input id="email" type="email" placeholder="e-mail" required>
         </div>
         <div class="row">
           <i class="bi bi-key-fill"></i>
-          <input type="text" placeholder="senha" required>
+          <input id="senha" type="password" placeholder="senha" required>
         </div>
         <div class="row button">
-          <input type="submit" value="Entrar">
+          <button type="submit" onclick="Login()">Entrar</button>
         </div>
       </form>
+
       <div class="arvore">
         <img class="arvore" src="img/arvore.png" alt="arvore">
       </div>
@@ -69,7 +71,7 @@
   </footer>
 
 
-
+  <script src="script_coletor.js"></script>
   <script>
     const url = '/';
     fetch(url)

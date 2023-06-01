@@ -1,0 +1,1 @@
+function abrir_menuLateral() {}

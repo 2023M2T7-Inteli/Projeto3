@@ -1,12 +1,14 @@
 var index = 0;
+var div
 
 // Adiciona um campo de pergunta na criação de protocolo
 function add_question() {
     index++;
     // Cria uma div com um id de questão único 
-    var div = document.createElement('div');
+    div = document.createElement('div');
     div.id = 'question' + index;
     div.classList.add('questions');
+
 
     // Adiciona a divisória
     var hr = document.createElement('hr');
@@ -47,33 +49,61 @@ function add_question() {
     div.appendChild(input_type)
 
     input_type.addEventListener('change', function() {
-        
         if (input_type.value === 'select') {
-            // Cria o elemento desejado
-            var alternative = document.createElement('input')
-            alternative.className = "alternatives";
-            alternative.placeholder = 'Escreva a alternativa...';
-
-            var button = document.createElement('button');
-            button.textContent = "+";
-            button.onclick = function() {
-                add_alternative(this, preview_question);
-            };
-            div.appendChild(alternative);
-            div.appendChild(button);
+            add_alternative(this)
 
         } else {
             var elementToRemove = div.querySelector('.alternatives')
             if (elementToRemove) {
                 elementToRemove.remove();
-              }
+            }
         }
 
     });
 
+    var index_option = 0
+    function add_alternative(this_alternative) {
+        index_option++
+        var div_alternative = document.createElement('div')
+        div_alternative.id = "alternative" + index_option
+        var alternative = document.createElement('input')
+        alternative.className = "alternatives";
+        alternative.placeholder = 'Escreva a alternativa...';
+
+        alternative.oninput = function () {
+            update_preview(div_alternative.parentNode.parentNode, preview_question, 'select')
+            console.log(this.parentNode.parentNode)
+        }
+
+        var button_add = document.createElement('button');
+        button_add.textContent = "+";
+
+        button_add.onclick = function() {
+            add_alternative(this.parentNode);
+        };
+        
+        var button_remove = document.createElement('button');
+        var icon = document.createElement('i');
+        icon.classList.add('bi', 'bi-x-lg');
+        button_remove.appendChild(icon);
+        button_remove.onclick = function() {
+            delete_alternative(this.parentNode);
+        };
+        
+        div_alternative.appendChild(alternative);
+        div_alternative.appendChild(button_add);
+        div_alternative.appendChild(button_remove);
+
+        document.getElementById(this_alternative.parentNode.id).appendChild(div_alternative)
+
+    }
+
+    function delete_alternative(this_alternative) {
+        var alternative_to_remove = this_alternative;
+        alternative_to_remove.remove(alternative_to_remove.parentNode);
+    }
     // Adiciona a div com todas as informações anteriores e dá um update na numeração de IDs (caso as perguntas sejam apagadas, os números serão substituídos)
     document.getElementById('questions-form').appendChild(div);
-    updateID()
 
     // Atualiza a pré-visualização sempre que um input ou o tipo de resposta for alterado
     input.oninput = function() {
@@ -85,32 +115,41 @@ function add_question() {
     }
 }
 
-// Seleciona todas as questões pela classe e atualiza as variáveis pelo looping
-function updateID() {
-    var question_id = document.getElementsByClassName('questions');
-    for (var i = 0; i < question_id.length; i++) {
-        question_id[i].id = 'question' + (i + 1);
+var img_div
+var index_img = 0
+function askfile() {
+    index_img++
+
+    img_div = document.createElement('div');
+    img_div.id = 'image' + index_img;
+    img_div.classList.add('images');
+    
+    // Adiciona a divisória
+    var hr = document.createElement('hr');
+    hr.classList.add('hr', 'hr-blurry');
+    img_div.appendChild(hr);
+
+    // Cria um input para digitar o enunciado da questão
+    var input = document.createElement('input');
+    input.id = "input" + index_img
+    input.type = 'text';
+    input.placeholder = 'Escreva qual foto deve ser enviada...';
+    var preview_question = "preview-images" + index_img
+    input.oninput = function() {
+        update_preview(input.id, preview_question, "file")
     }
-}
-
-function add_alternative(this_alternative, preview_question) {
-    var div = this_alternative.parentNode
-    var alternative = document.createElement('input')
-    alternative.className = "alternatives";
-    alternative.placeholder = 'Escreva a alternativa...';
-
+    img_div.appendChild(input);
+    
     var button = document.createElement('button');
-    button.textContent = "+";
+    var icon = document.createElement('i');
+    icon.classList.add('bi', 'bi-x-lg');
+    button.appendChild(icon);
     button.onclick = function() {
-        add_alternative(this, preview_question);
+        delete_question(this, preview_question);
     };
+    img_div.appendChild(button);
 
-    div.appendChild(alternative);
-    div.appendChild(button);
-}
-
-alternative.oninput = function() {
-    update_preview(input.id, preview_question, input_type.value)
+    document.getElementById('images-form').appendChild(img_div);    
 }
 
 // Ao clicar no ícone de remover pergunta, remove a div através do id e atualiza os IDs das outras divs
@@ -119,7 +158,6 @@ function delete_question(button, preview_question) {
     var previewDiv = document.getElementById(preview_question);
     div.remove();
     previewDiv.remove()
-    updateID();
 }
 
 // Cria uma div de pré-visualização caso não exista, ou sobreescreve com o que está sendo escrito como enunciado
@@ -131,8 +169,12 @@ function update_preview(question, previewDivId, input_type) {
         previewDiv = document.createElement('div');
         previewDiv.id = previewDivId;
         previewDiv.classList.add('questions-preview');
-
-        document.getElementById('questions-preview').appendChild(previewDiv);
+        
+        if(input_type != 'file'){
+            document.getElementById('questions-preview').appendChild(previewDiv);
+        } else {
+            document.getElementById('images-preview').appendChild(previewDiv);
+        }
     }
 
     var h3 = document.createElement('h3');
@@ -140,7 +182,7 @@ function update_preview(question, previewDivId, input_type) {
 
     previewDiv.innerHTML = '';
     previewDiv.appendChild(h3);
-
+    
     // Cria um input de resposta com o tipo selecionado.
     if(input_type == 'select'){
         // Caso seja do tipo select, cria um menu suspenso com as alternativas possíveis
@@ -167,6 +209,7 @@ function update_preview(question, previewDivId, input_type) {
         var input_answer = document.createElement('input')
         input_answer.type = input_type
         previewDiv.appendChild(input_answer)
+        
 
     }
 }

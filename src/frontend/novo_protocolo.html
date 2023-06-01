@@ -48,9 +48,17 @@
                 <div id="questions-form" class="justify-content-center text-center">
                     <h2>Insira as perguntas</h2>
                 </div>
-                <hr class="hr hr-blurry">
                 <div class="text-center">
                     <button id="add_question" onclick="add_question()">Adicionar pergunta</button>
+                </div>
+
+                <hr class="hr hr-blurry">
+
+                <div id="images-form" class="justify-content-center text-center">
+                    <h2>Requisições de imagens</h2>
+                </div>
+                <div class="text-center">
+                    <button id="add_askfile" onclick="askfile()">Adicionar requisição</button>
                 </div>
             </div>
 
@@ -63,6 +71,9 @@
                 </div>
                 <hr class="hr hr-blurry">
                 <div id="questions-preview">
+                </div>
+                <div id="images-preview">
+
                 </div>
 
                 <button type="button" id="send-form" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Enviar formulário</button>
@@ -87,7 +98,7 @@
                     <form action="\index.html" method="post">
                         <p><input type="checkbox" name="grupos" id="grupo1">Região 1</p>
                         <p><input type="checkbox" name="grupos" id="grupo2">Região 2</p>
-                        <p><input type="checkbox" name="grupos" id="grupo2">Região 3</p>
+                        <p><input type="checkbox" name="grupos" id="grupo3">Região 3</p>
 
                         <p><button id="send-groups" type="submit">Enviar</button></p>
                     </form>

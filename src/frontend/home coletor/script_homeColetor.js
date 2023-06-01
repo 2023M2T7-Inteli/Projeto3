@@ -1,1 +1,3 @@
-function abrir_menuLateral() {}
+function abrir_menuLateral() {
+  $.ajax;
+}

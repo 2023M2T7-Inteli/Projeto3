@@ -148,7 +148,7 @@ form .row input:focus {
     cursor: pointer;
     border:1px;
     color: var(--black);
-    background: var(--green-darker); 
+    background: var(--green); 
     width: 50%;
     margin-left: 25%;
     margin-right: 25%;

@@ -35,7 +35,7 @@ function add_question() {
     var input_type = document.createElement('select')
     input_type.name = "input_type"
 
-    var types = ['text', 'date', 'number', 'alternativa']
+    var types = ['text', 'date', 'number', 'select']
 
     for(let i = 0; i < types.length; i++){
         var option = document.createElement('option')
@@ -45,6 +45,31 @@ function add_question() {
     }
 
     div.appendChild(input_type)
+
+    input_type.addEventListener('change', function() {
+        
+        if (input_type.value === 'select') {
+            // Cria o elemento desejado
+            var alternative = document.createElement('input')
+            alternative.className = "alternatives";
+            alternative.placeholder = 'Escreva a alternativa...';
+
+            var button = document.createElement('button');
+            button.textContent = "+";
+            button.onclick = function() {
+                add_alternative(this, preview_question);
+            };
+            div.appendChild(alternative);
+            div.appendChild(button);
+
+        } else {
+            var elementToRemove = div.querySelector('.alternatives')
+            if (elementToRemove) {
+                elementToRemove.remove();
+              }
+        }
+
+    });
 
     // Adiciona a div com todas as informações anteriores e dá um update na numeração de IDs (caso as perguntas sejam apagadas, os números serão substituídos)
     document.getElementById('questions-form').appendChild(div);
@@ -66,6 +91,26 @@ function updateID() {
     for (var i = 0; i < question_id.length; i++) {
         question_id[i].id = 'question' + (i + 1);
     }
+}
+
+function add_alternative(this_alternative, preview_question) {
+    var div = this_alternative.parentNode
+    var alternative = document.createElement('input')
+    alternative.className = "alternatives";
+    alternative.placeholder = 'Escreva a alternativa...';
+
+    var button = document.createElement('button');
+    button.textContent = "+";
+    button.onclick = function() {
+        add_alternative(this, preview_question);
+    };
+
+    div.appendChild(alternative);
+    div.appendChild(button);
+}
+
+alternative.oninput = function() {
+    update_preview(input.id, preview_question, input_type.value)
 }
 
 // Ao clicar no ícone de remover pergunta, remove a div através do id e atualiza os IDs das outras divs
@@ -96,10 +141,32 @@ function update_preview(question, previewDivId, input_type) {
     previewDiv.innerHTML = '';
     previewDiv.appendChild(h3);
 
-    // Cria um input de resposta com o tipo selecionado. Não funciona para a opção alternativa por precisar ser montado um menu "select".
-    var input_answer = document.createElement('input')
-        if(input_type != 'alternativa'){
+    // Cria um input de resposta com o tipo selecionado.
+    if(input_type == 'select'){
+        // Caso seja do tipo select, cria um menu suspenso com as alternativas possíveis
+        var input_answer = document.createElement('select')
+        input_answer.name = "input_answer"
+
+        var types = document.getElementsByClassName("alternatives")
+
+        for(let i = 0; i < types.length; i++){
+            var inputValue = types[i].value;
+            console.log(inputValue)
+            // Cria um elemento option e define seu valor e conteúdo
+            var option = document.createElement('option');
+            option.value = inputValue;
+            option.textContent = inputValue;
+            input_answer.appendChild(option)
+        }
+
+        previewDiv.appendChild(input_answer)
+
+    } else {
+        
+        // Caso contrário, cria um input do tipo requisitado
+        var input_answer = document.createElement('input')
         input_answer.type = input_type
         previewDiv.appendChild(input_answer)
+
     }
 }

@@ -425,3 +425,192 @@ header, .navbra {
     padding: 7px;
   }
 }
+
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: var(--background);
+}
+
+.row {
+  margin: 0;
+}
+
+.container {
+  padding: 70px 0;
+}
+
+p, li {
+  color: #36453A;
+  font-size: 14px;
+}
+
+/* Cabeçalho */
+header, .navbar {
+  background-color: var(--gray-light);
+}
+
+#nav-container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+#logo {
+  width: 100px;
+}
+
+.navbar-brand {
+  padding: 0;
+  color: var(--text)
+}
+
+.navbar-brand:hover {
+  color: var(--background);
+}
+
+#navbar-links a {
+  color: var(--text)
+}
+
+.navbar-expand-lg .navbar .nav-link {
+  padding: 1rem .8rem;
+}
+
+
+/* Main */
+h2 {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+#controller h2 {
+  color: var(--white);
+}
+
+#controller {
+  background-color: var(--gray-dark);
+  margin: 0;
+  padding-top: 5em;
+}
+
+#preview {
+  padding-top: 5rem;
+}
+
+main p {
+  width: 75%;
+  margin: 0 auto;
+}
+
+i {
+  fill: var(--black);
+}
+
+#controller hr {
+  border-top: 1px solid var(--gray);
+  margin: 3rem 0;
+}
+
+#add_question, #controller input{
+  height: 36px;
+  background-color: var(--gray-lighter);
+  border: 1px solid var(--gray-lighter);
+  border-radius: 5px;
+}
+
+#controller input {
+  color: var(--white);
+}
+
+button:focus {
+  outline: 0;
+}
+
+#controller input{
+  background-color: var(--gray-dark);
+  width: 75%;
+}
+
+#add_question{
+  margin-bottom: 20rem;
+}
+
+#add_question:hover{
+  background-color: var(--gray);
+  border: 2px solid var(--gray);
+  border-radius: 5px;
+}
+
+#add_question:focus{
+  outline: 0;
+}
+
+#preview h3 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+#preview input {
+  height: 2.5rem;
+  width: 40%;
+  border-radius: 5px;
+  border: 1px solid var(--gray-dark);
+  background-color: var(--white);
+}
+
+.modal-body input{
+  font-size: 1em;
+}
+
+.modal-body p{
+  margin-bottom: 0.5rem;
+}
+
+#send-form, #send-groups {
+  width: 100%;
+  margin: auto;
+  margin-top: 3rem;
+  background-color: var(--green-dark);
+  border: 1px solid var(--green-dark);
+  color: var(--white);
+  height: 2.5rem;
+  border-radius: 5px;
+}
+
+#send-form {
+  width: 30%;
+}
+
+/* Footer */
+footer {
+  background-color: var(--black);
+  text-align: center;
+}
+
+#copy-area .container {
+  padding: 10px 0;
+}
+
+footer #logo {
+  width: 150px;
+  border-bottom: 2px solid var(--white);
+}
+
+footer p {
+  font-size: 0.75rem;
+  color: var(--white);
+
+}
+
+a {
+  color: var(--link);
+}
+
+.footer-brand {
+  padding: 0;
+  color: var(--text)
+}
+
+.footer-brand:hover {
+  color: var(--background);
+}

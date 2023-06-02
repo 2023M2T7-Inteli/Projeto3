@@ -6,18 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Coletor</title>
     <link rel="stylesheet" href="estilo.css" />
-    <script src="script_homeColetor.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.js"
+      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div id="container">
       <header>
-        <button id="foto_de_perfil" onclick="">
-          <img src="../ícones/person-fill.svg" alt="" />
-        </button>
         <img id="logotipo" src="./img/logo.svg" alt="logoObyWeb" />
-        <button id="menu_lateral" onclick="abrir_menuLateral()">
-          <img src="../ícones/list.svg" alt="img botao teste" />
-        </button>
+        <div id="menu">
+          <a class="link_header" href="" class="texto_menu">Home</a>
+          <a class="link_header" href="" class="texto_menu">Sobre</a>
+          <a class="link_header" href="" class="texto_menu">Reportar Erro</a>
+          <a class="link_header" href="" class="texto_menu">Contato</a>
+        </div>
       </header>
       <main>
         <div class="galeria_de_coletas">
@@ -122,5 +126,6 @@
         </div>
       </main>
     </div>
+    <script src="script_homeColetor.js"></script>
   </body>
 </html>

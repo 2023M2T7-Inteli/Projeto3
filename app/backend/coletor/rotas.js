@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream:app/backend/app.js
 <<<<<<<< Updated upstream:app/backend/app.js
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -141,26 +140,6 @@ coletorRouter.get('/remove_coletor', urlencodedParser, (req, res) => {
 
 
  
-=======
-import express from "express";
-import routes from "./routes.js";
-const hostname = "localhost";
-const port = 3000;
-const app = express();
-/* Colocar toda a parte estática no frontend */
-app.use(express.static("../frontend/"));
-/* Definição dos endpoints */
-/******** CRUD ************/
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-/* Aplica as rotas */
-app.use(routes);
-/* Inicia o servidor */
-app.listen(port, hostname, () => {
-  console.log(`Servidor rodando em http://${hostname}:${port}/`);
-});
-
->>>>>>> Stashed changes:src/backend/app.js
 
 
 
@@ -172,13 +151,6 @@ app.listen(port, hostname, () => {
 
 
 
-<<<<<<< Updated upstream:app/backend/app.js
 ========
 export default coletorRouter;
 >>>>>>>> Stashed changes:app/backend/coletor/rotas.js
-=======
-
-
-
-
->>>>>>> Stashed changes:src/backend/app.js

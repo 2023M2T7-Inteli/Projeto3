@@ -45,7 +45,7 @@ app.get('/coletores', (req,res) => {
 app.post('/login_coletor', (req,res) => {
     var db = new sqlite3.Database(PATH); 
 	console.log(req.body);// Abre o banco
-	var sql = 'SELECT * FROM Coletor WHERE EMAIL= "'  + req.body.email + '" AND SENHA= "' + req.body.senha  + '"';
+	var sql = 'SELECT * FROM Coletor WHERE EMAIL= "'  + req.body.email + '" AND SENHA= "' + req.body.senha  + '"'// + req.body.tipo = "'";
 	console.log(sql)
 	db.all(sql, [],  (err, rows ) => {
 		if (err) {

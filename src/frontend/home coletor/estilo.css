@@ -7,6 +7,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  /* background-color: #ecf6e6; */
 }
 header {
   display: flex;
@@ -38,7 +39,7 @@ header {
 main {
   background-color: #ecf6e6;
   padding-left: 20px;
-  height: 100%;
+  height: 100vh;
   padding-top: 20px;
   display: grid;
   justify-content: center;
@@ -48,9 +49,6 @@ main {
   width: 100%;
   border-radius: 7px;
 }
-/* .imagens_das_amostras:hover {
-    border: 2px solid rgb(0, 0, 0);
-  } */
 #coletas_abertas {
   display: grid;
   justify-content: center;
@@ -70,9 +68,6 @@ main {
   padding-top: 20px;
   opacity: 50%;
 }
-/* #coletas_enviadas:hover{
-
-  } */
 .amostra {
   position: relative;
   width: 135px;
@@ -80,10 +75,8 @@ main {
   border: 1px solid black;
   border-radius: 7px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }
-/* .imagens_das_amostras {
-    opacity: 95%;
-  } */
 .texto_das_amostras {
   height: 30%;
   width: 100%;
@@ -152,9 +145,6 @@ main {
     width: 100%;
     border-radius: 7px;
   }
-  /* .imagens_das_amostras:hover {
-      border: 2px solid rgb(0, 0, 0);
-    } */
   #coletas_abertas {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -174,9 +164,6 @@ main {
     padding-top: 20px;
     opacity: 50%;
   }
-  /* #coletas_enviadas:hover{
-  
-    } */
   .amostra {
     position: relative;
     width: 135px;
@@ -185,9 +172,6 @@ main {
     border-radius: 7px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
   }
-  /* .imagens_das_amostras {
-      opacity: 95%;
-    } */
   .texto_das_amostras {
     height: 30%;
     width: 100%;

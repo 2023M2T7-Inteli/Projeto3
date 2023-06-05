@@ -1,7 +1,9 @@
 var index = 0;
 var div
 
+
 // Adiciona um campo de pergunta na criação de protocolo
+
 function add_question() {
     index++;
     // Cria uma div com um id de questão único 

@@ -1,36 +1,40 @@
 const on_load = () => {
-  const le_protocolo = () => {
-    axios
-      .get(" http://127.0.0.1:3000/visualizar_protocolos")
+  le_protocolo();
+  criar_estruturaHtml();
+};
 
-      .then((response) => {
-        const protocolos = response.data;
+const le_protocolo = () => {
+  axios
+    .get(" http://127.0.0.1:3000/visualizar_protocolos")
 
-        console.log(protocolos);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-  const criar_EstruturaHtml = () => {
-    let html = "";
+    .then((response) => {
+      const protocolos = response.data;
 
-    protocolos.forEach((protocolo) => {
-      const { nome, descricao, data_limite, estado } = protocolo;
-
-      html += ` <img
-    class="imagens_das_amostras"
-    src="../img/img_fruta_teste.jpg"
-    alt="Fruta 1"
-  />
-  <div class="texto_das_amostras">
-    <h4 class="nome_amostra">${nome}</h4>
-    <p class="validade_amostra">${data_limite}</p>
-  </div>`;
+      console.log(protocolos);
+    })
+    .catch((error) => {
+      console.log(error);
     });
+};
 
-    const container = document.getElementById("#container");
+const criar_estruturaHtml = () => {
+  let html = "";
 
-    container.innerHTML += html;
-  };
+  protocolos.forEach((protocolo) => {
+    const { nome, descricao, data_limite, estado } = protocolo;
+
+    html += ` <img
+  class="imagens_das_amostras"
+  src="../img/img_fruta_teste.jpg"
+  alt="Fruta 1"
+/>
+<div class="texto_das_amostras">
+  <h4 class="nome_amostra">${nome}</h4>
+  <p class="validade_amostra">${data_limite}</p>
+</div>`;
+  });
+
+  const container = document.getElementById("#container");
+
+  container.innerHTML += html;
 };

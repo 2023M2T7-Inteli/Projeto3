@@ -15,26 +15,30 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Homecoletor</title>
 </head>
-<header>
-    <div class="container" id="nav-container">
-        <nav class="navbar navbar-expand-lg fixed-top">
-            <a href="#" class="navbar-brand">
-                <img id="logo" src="img/logo.svg" alt="Obyweb logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links"
-                aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
-                <i class="bi bi-list"></i>
-                <div class="navbar-nav">
-                    
+
+<body>
+    <header>
+        <div class="container" id="nav-container">
+            <nav class="navbar navbar-expand-lg fixed-top">
+                <a href="#" class="navbar-brand">
+                    <img id="logo" src="img/logo.svg" alt="Obyweb logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="bi bi-list align-self-center"></i>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" id="home-menu" href="index.html">Home</a>
+                        <a class="nav-item nav-link" id="about-menu">Sobre</a>
+                        <a class="nav-item nav-link" id="portfolio-menu">Reportar Erro</a>
+                        <a class="nav-item nav-link" id="contato-menu">Contato</a>
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </div>
-</header>
-<body><br><br>
+            </nav>
+        </div>
+    </header>
+
+    <main>
         <input type="checkbox" id="chec">
         <label for="chec">
             <i><i class="bi bi-list"></i></i>
@@ -46,60 +50,60 @@
             <li><a href=""> HOME</a></li>
             <li><a href=""> HOME</a></li>
         </ul>
-    </nav>
-    <div class="container2">
-    <div class="wrapper">
-    <div class="flex-container">
-        <h4 id="Protocolo"> Protocolo</h3>
-        <p>Lorem ipsum dolor sit amet.</p>
-        <div class="inline">
-            <div class="inputIcon">
-                <i class="bi bi-pin-map-fill">"></i>
-                <input type="text"  required>
+        <div class="container2">
+        <div class="wrapper">
+        <div class="flex-container">
+            <h4 id="Protocolo"> Protocolo</h3>
+            <p>Lorem ipsum dolor sit amet.</p>
+            <div class="inline">
+                <div class="inputIcon">
+                    <i class="bi bi-pin-map-fill">"></i>
+                    <input type="text"  required>
+                </div>
+                <div class="inputIcon">
+                    <i class="bi bi-calendar3"></i>
+                    <input type="date"  required>
+                </div> <br>
             </div>
-            <div class="inputIcon">
-                <i class="bi bi-calendar3"></i>
-                <input type="date"  required>
-            </div> <br>
-        </div>
-        <h5>escolha:</h5>
-        <div class="multipleChoice">
-            <input type="radio" class="radio" value="a">
-            <label for="a"></label>
-            <input type="radio" class="radio">
-            <input type="radio" class="radio">
-            <input type="radio" class="radio">
-        </div><br>
-        <h5>selecione:</h5>
-        <select name="perguntaA" id="1">
-            <option value="aaaaaaaaaaa"></option>
-            <option value="bbbbbbbbbbbb"></option>
-            <option value="c"></option>
-            <option value="d"></option>
-            <option value="e"></option>
-        </select><br><br>
-        <div class="inline">
-            <div class="inputIcon">
-                <i class="bi bi-plus-circle"></i>
-                <input type="file" required>
+            <h5>escolha:</h5>
+            <div class="multipleChoice">
+                <input type="radio" class="radio" value="a">
+                <label for="a"></label>
+                <input type="radio" class="radio">
+                <input type="radio" class="radio">
+                <input type="radio" class="radio">
+            </div><br>
+            <h5>selecione:</h5>
+            <select name="perguntaA" id="1">
+                <option value="aaaaaaaaaaa"></option>
+                <option value="bbbbbbbbbbbb"></option>
+                <option value="c"></option>
+                <option value="d"></option>
+                <option value="e"></option>
+            </select><br><br>
+            <div class="inline">
+                <div class="inputIcon">
+                    <i class="bi bi-plus-circle"></i>
+                    <input type="file" required>
+                </div>
+                <br><br>
+                <div class="inputIcon">
+                    <i class="bi bi-plus-circle"></i>
+                    <input type="text" id="questao">
+                </div> <br>
             </div>
-            <br><br>
-            <div class="inputIcon">
-                <i class="bi bi-plus-circle"></i>
-                <input type="text" id="questao">
-            </div> <br>
-        </div>
-        <div class="questao">
-            <h5>questão</h5>
-            <input type="text">
-        </div>
-        <div class="quantos">
-            <h5>quantos</h5>
-            <input type="number">
+            <div class="questao">
+                <h5>questão</h5>
+                <input type="text">
+            </div>
+            <div class="quantos">
+                <h5>quantos</h5>
+                <input type="number">
+            </div>
+            </div>
         </div>
         </div>
-    </div>
-    </div>
-    </div>
+        </div>
+    </main>
 </body>
 </html>

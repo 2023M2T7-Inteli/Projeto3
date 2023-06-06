@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <title>Criar protocolo</title>
+</head>
+<body>
+    <script src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container" id="nav-container">
+            <nav class="navbar navbar-expand-lg fixed-top">
+                <a href="#" class="navbar-brand">
+                    <img id="logo" src="../img/logo.svg" alt="Obyweb logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" id="home-menu" href="index.html">Home</a>
+                        <a class="nav-item nav-link" id="about-menu">Sobre</a>
+                        <a class="nav-item nav-link" id="portfolio-menu">Reportar Erro</a>
+                        <a class="nav-item nav-link" id="contato-menu">Contato</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    
+
+    <div class="container">
+        <section class="kanban">
+            <article id="funcionalities">
+
+                <div class="filters">
+
+                    <h3 id="filters-title"><strong>Filtros</strong></h3>
+
+                    <div>
+                        <input type="checkbox" id="checkbox3" name="checkbox3" value="value3">
+                        <label for="checkbox3">Hoje</label>
+                    </div>
+                    
+                    <div>
+                        <input type="checkbox" id="checkbox1" name="checkbox1" value="value1">
+                        <label for="checkbox1">Nesta Semana</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="checkbox1" name="checkbox1" value="value1">
+                        <label for="checkbox1">Neste mês</label>
+                    </div>
+
+                </div>
+
+                <div class="protocols">
+
+                    <h3 id="protocols-title"><strong>Protocolos</strong></h3>
+                    <a href="#" class="button" id="create-protocols">Novo protocolo</a>
+
+                </div>
+
+            </article>
+            <article class="column">
+                <div class="column-title"><strong>Protocolos Enviados</strong></div>
+                <div class="card">
+                    <img src="img-protocolo.svg"  class="h-75" alt="Semente de Karité, protocolo 1" class="img-protocol">
+                <div class="card-content">
+                    <p class="card-title"><strong>Karité</strong></p>
+                    <p class="card-date">20/07/23</p>
+                </div>
+            </div>
+            </article>
+            <article class="column">
+                <div class="column-title"><strong>Protocolos Recebidos </strong> </div>
+                <div class="card">
+                    <div>
+                        <img src="img-protocolo.svg"  class="h-75" alt="açaí, protocolo 1" class="img-protocol">
+                    </div>
+                    <div>
+                        <p class="card-title"><strong>Karité</strong></p>
+                        <p class="card-date">15/05/23</p>
+                    </div>
+                </div>
+            </article>
+            </div>
+        </section>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div id="contact-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="" class="footer-brand">
+                            <img id="logo" class="img-responsive" src="../img/logo-branco.svg" alt="Obyweb logo">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="copy-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Desenvolvido por Obyweb - <a target="_blank" href="https://www.inteli.edu.br">Instituto de Tecnologia e Liderança</a> &copy; 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script>
+        const url = '/';
+        fetch(url)
+    </script>
+
+</html>

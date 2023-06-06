@@ -27,6 +27,11 @@
     --error: var(--red);
 }
 
+select {
+    display: block;
+    margin: 0 auto;
+}
+
 /* Gerais */
 body {
     font-family: 'Quicksand', sans-serif;
@@ -46,8 +51,9 @@ p, li {
     font-size: 14px;
 }
 
-/* Barra de navegação */
-header, .navbra {
+/* Cabeçalho */
+header,
+.navbar {
     background-color: var(--gray-light);
 }
 
@@ -62,7 +68,7 @@ header, .navbra {
 
 .navbar-brand {
     padding: 0;
-    color: var(--text)
+    color: var(--text);
 }
 
 .navbar-brand:hover {
@@ -70,11 +76,11 @@ header, .navbra {
 }
 
 #navbar-links a {
-    color: var(--text)
+    color: var(--text);
 }
 
 .navbar-expand-lg .navbar .nav-link {
-    padding: 1rem .8rem;
+    padding: 1rem 0.8rem;
 }
 .container2{
     max-width: 450px;

@@ -1,20 +1,19 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const urlencodedParser = bodyParser.urlencoded({ extended: false })
+const express = require("express");
+const bodyParser = require("body-parser");
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-const sqlite3 = require('sqlite3').verbose();
+const sqlite3 = require("sqlite3").verbose();
 const PATH = "../database/db_obyweb.db";
 
 const app = express();
-app.listen(3000)
+app.listen(3000, () => {
+  console.log("funcionando em " + "http://127.0.0.1:3000/");
+});
 
 app.use(express.static("../frontend/"));
 app.use(express.json());
 
-
-
 /****************************** CRIAR PROTOCOLO ********************************************/
-
 app.post("/criar_protocolo", (req, res) => {
   var db = new sqlite3.Database(PATH); // Abre o banco
   sql =
@@ -47,11 +46,17 @@ app.get("/visualizar_protocolos", (req, res) => {
   console.log(sql);
   db.all(sql, [], (err, rows) => {
     if (err) {
+      console.log(err);
       throw err;
     }
+    console.log(rows);
     res.json(rows);
   });
   db.close(); // Fecha o banco
+});
+
+app.get("/homecoletor", function (req, res) {
+  res.sendFile("/homecoletor/homecoletor.html", { root: "../frontend/" });
 });
 
 /****************************** ATUALIZAR DADOS DO PROTOCOLO ************************************/

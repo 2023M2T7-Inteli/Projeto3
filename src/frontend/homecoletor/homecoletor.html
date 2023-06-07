@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< Updated upstream
 <html lang="pt-br">
 
 <head>
@@ -41,6 +42,30 @@
             <a class="nav-item nav-link" id="portfolio-menu">Reportar Erro</a>
             <a class="nav-item nav-link" id="contato-menu">Contato</a>
           </div>
+=======
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Coletor</title>
+    <link rel="stylesheet" href="estilo.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.js"
+      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body onload="on_load()">
+    <div id="container">
+      <header>
+        <img id="logotipo" src="../img/logo.svg" alt="logoObyWeb" />
+        <div id="menu">
+          <a class="link_header" href="">Home</a>
+          <a class="link_header" href="">Sobre</a>
+          <a class="link_header" href="">Reportar Erro</a>
+          <a class="link_header" href="">Contato</a>
+>>>>>>> Stashed changes
         </div>
       </nav>
     </div>
@@ -48,106 +73,16 @@
       <main>
         <div class="galeria_de_coletas">
           <div class="titulos_coletas"><h3>Coletas em aberto</h3></div>
-          <div id="coletas_abertas">
-            <div class="amostra">
-              <img
-                class="imagens_das_amostras"
-                src="../img/img_fruta_teste.jpg"
-                alt="Fruta 1"
-              />
-              <div class="texto_das_amostras">
-                <h4 class="nome_amostra">Fruta X</h4>
-                <p class="validade_amostra">21/12</p>
-              </div>
-            </div>
-
-            <div class="amostra">
-              <img
-                class="imagens_das_amostras"
-                src="../img/img_fruta_teste1.png"
-                alt="Fruta 1"
-              />
-              <div class="texto_das_amostras">
-                <h4 class="nome_amostra">Fruta X</h4>
-                <p class="validade_amostra">21/12</p>
-              </div>
-            </div>
-            <div class="amostra">
-              <img
-                class="imagens_das_amostras"
-                src="../img/img_fruta_teste2.jpg"
-                alt="Fruta 1"
-              />
-              <div class="texto_das_amostras">
-                <h4 class="nome_amostra">Fruta X</h4>
-                <p class="validade_amostra">21/12</p>
-              </div>
-            </div>
-            <div class="amostra">
-              <img
-                class="imagens_das_amostras"
-                src="../img/img_fruta_teste3.jpg"
-                alt="Fruta 1"
-              />
-              <div class="texto_das_amostras">
-                <h4 class="nome_amostra">Fruta X</h4>
-                <p class="validade_amostra">21/12</p>
-              </div>
-            </div>
-          </div>
+          <div id="coletas_abertas"></div>
         </div>
         <div class="galeria_de_coletas">
           <div class="titulos_coletas"><h3>Coletas enviadas</h3></div>
-          <div id="coletas_enviadas">
-            <div class="amostra">
-              <img
-                class="imagens_das_amostras"
-                src="../img/img_fruta_teste.jpg"
-                alt="Fruta 1"
-              />
-              <img src="../ícones/" alt="" />
-              <div class="texto_das_amostras">
-                <h4 class="nome_amostra">Fruta X</h4>
-                <p class="validade_amostra">21/12</p>
-              </div>
-            </div>
-            <div class="amostra">
-              <img
-                class="imagens_das_amostras"
-                src="../img/img_fruta_teste.jpg"
-                alt="Fruta 1"
-              />
-              <div class="texto_das_amostras">
-                <h4 class="nome_amostra">Fruta X</h4>
-                <p class="validade_amostra">21/12</p>
-              </div>
-            </div>
-            <div class="amostra">
-              <img
-                class="imagens_das_amostras"
-                src="../img/img_fruta_teste.jpg"
-                alt="Fruta 1"
-              />
-              <div class="texto_das_amostras">
-                <h4 class="nome_amostra">Fruta X</h4>
-                <p class="validade_amostra">21/12</p>
-              </div>
-            </div>
-            <div class="amostra">
-              <img
-                class="imagens_das_amostras"
-                src="../img/img_fruta_teste.jpg"
-                alt="Fruta 1"
-              />
-              <div class="texto_das_amostras">
-                <h4 class="nome_amostra">Fruta X</h4>
-                <p class="validade_amostra">21/12</p>
-              </div>
-            </div>
-          </div>
+          <div id="coletas_enviadas"></div>
         </div>
       </main>
     </div>
-    <script src="script_homeColetor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="redireciona.js"></script>
+    <script src="fornece_protocolo.js"></script>
   </body>
 </html>

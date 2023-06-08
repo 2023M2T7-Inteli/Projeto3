@@ -55,6 +55,7 @@ Aqui encontram-se todas as instruções necessárias para a instalação de todo
 1.  Baixar e instalar o node.js: [https://nodejs.org/pt-br/](https://nodejs.org/pt-br/) (versão 16.15.1 LTS)
 2.  Clone o repositório em questão.
 3.  No modo administrador, abra o "prompt de comando" ou o "terminal" e, após, abra a pasta "src/backend" no diretório raiz do repositório clonado e digite o segundo comando:
+  
 
 ```sh
 npm install
@@ -66,21 +67,10 @@ Isso instalará todas as dependências definidas no arquivo <b>package.json</b> 
 npm start
 ```
 
-5. Agora você pode acessar a aplicação através do link http://localhost:1234/
-6. O servidor está online.
 
-```
-Alunos inteli (remover essa observação do readme.md após leitura e execução):
+4. Agora você pode acessar a aplicação através do link http://localhost:1234/
+5. O servidor está online.
 
-1. Certifique-se que há um arquivo "package.json" na pasta backend do projeto.
-
-2. Dentro deste arquivo, encontre a propriedade "scripts", e adicione um atributo de nome "start"
-com o valor "node <CAMINHO_DO_ARQUIVO_DO_SERVIDOR>." Atenção: "<CAMINHO_DO_ARQUIVO_DO_SERVIDOR>"
-deve ser substituído pelo caminho para o arquivo principal da aplicação, utilizado para subir o
-servidor. Por exemplo, se o arquivo utilizado para subir o servidor é "app.js", o atributo start
-deve possuir o valor "node app.js".
-
-3. No arquivo utilizado para subir a aplicação, defina a porta padrão de execução para "1234".
 ```
 
 ## 🗃 Histórico de lançamentos
@@ -113,7 +103,38 @@ deve possuir o valor "node app.js".
 - 1.9- 26/05/2023
   - Revisão do front-end
   - Atualização do WAD (Web Aplication Document)
-
+- 2.0- 29/05/2023
+  - Adições no front-end (criar e responder protocolo)
+  - Alterações no banco de dados
+- 2.1- 31/05/2023
+  - Atualização no front-end
+- 2.2- 01/06/2023
+  - Atualização no front-end
+  - Integração da tela de Login
+  - Organização de pastas
+- 2.3- 02/06/2023
+  - Início da integração da tela home-pesquisador
+  - Organização de pastas
+- 2.4- 04/06/2023
+  - Integração da tela home-pesquisador
+  - Alterações no Login
+- 2.5- 05/06/2023
+  - Alterações de endpoint para protocolo
+  - Adição de alertas
+- 2.6- 06/06/2023
+  - Correção de menus
+  - Atualizações no readme
+  - Refatoração no banco de dados
+  - Alteração de porta
+  - Continuidade à integração das telas
+- 2.7- 07/06/2023
+  - Atualização WAD
+  - Atualização endpoints
+  - Organização de pastas e arquivos
+  - Adição 'npm start'
+  
+  
+  
 ## 📋 Licença/License
 
 <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/2023M2T7-Inteli/Projeto3">ObyWeb</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.inteli.edu.br">Inteli</a>, <a href="https://www.linkedin.com/in/davi-motta-53bba618b/">Davi Rosalino Glória Motta</a>, <a href="https://www.linkedin.com/in/drielly-farias/">Drielly Santana Farias</a>, <a href="https://www.linkedin.com/in/felipe-sabino-spina-b33372271/">Felipe Sabino Spina</a>, <a href="https://www.linkedin.com/in/victorbarq/">João Pedro Rodrigues Sotto Maior</a>, <a href="https://www.linkedin.com/in/victorbarq/">Manuela Dina de Mula Cury</a>, <a href="https://www.linkedin.com/in/victorbarq/">Marcelo Faska Sitton</a>, <a href="https://www.linkedin.com/in/renan-feitosa-44328524a/">Renan Feitosa Oliveira</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International</a>.</p>

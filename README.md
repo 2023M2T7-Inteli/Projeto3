@@ -71,7 +71,6 @@ npm start
 4. Agora você pode acessar a aplicação através do link http://localhost:1234/
 5. O servidor está online.
 
-```
 
 ## 🗃 Histórico de lançamentos
 
@@ -90,7 +89,7 @@ npm start
 - 1.4 - 17/05/2023
   - Adição das variáveis de cores base no css
   - Adição do arquivo html e css referentes ao footer e header do site
-- 1.5- 18/05/2023
+- 1.5 - 18/05/2023
   - Adição da tela de login
 - 1.6 - 22/05/2023
   - Adição da tela do coletor
@@ -100,34 +99,34 @@ npm start
 - 1.8 - 24/05/2023
   - Adição do menu lateral da tela do coletor
   - Adição da tela de criar protocolos
-- 1.9- 26/05/2023
+- 1.9 - 26/05/2023
   - Revisão do front-end
   - Atualização do WAD (Web Aplication Document)
-- 2.0- 29/05/2023
+- 2.0 - 29/05/2023
   - Adições no front-end (criar e responder protocolo)
   - Alterações no banco de dados
-- 2.1- 31/05/2023
+- 2.1 - 31/05/2023
   - Atualização no front-end
-- 2.2- 01/06/2023
+- 2.2 - 01/06/2023
   - Atualização no front-end
   - Integração da tela de Login
   - Organização de pastas
-- 2.3- 02/06/2023
+- 2.3 - 02/06/2023
   - Início da integração da tela home-pesquisador
   - Organização de pastas
-- 2.4- 04/06/2023
+- 2.4 - 04/06/2023
   - Integração da tela home-pesquisador
   - Alterações no Login
-- 2.5- 05/06/2023
+- 2.5 - 05/06/2023
   - Alterações de endpoint para protocolo
   - Adição de alertas
-- 2.6- 06/06/2023
+- 2.6 - 06/06/2023
   - Correção de menus
   - Atualizações no readme
   - Refatoração no banco de dados
   - Alteração de porta
   - Continuidade à integração das telas
-- 2.7- 07/06/2023
+- 2.7 - 07/06/2023
   - Atualização WAD
   - Atualização endpoints
   - Organização de pastas e arquivos

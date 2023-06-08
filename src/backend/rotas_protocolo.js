@@ -1,3 +1,5 @@
+// NÃO UTILIZADO ATÉ O MOMENTO 
+
 /****************************** CRIAR PROTOCOLO ********************************************/
 
 app.post("/criar_protocolo", (req, res) => {

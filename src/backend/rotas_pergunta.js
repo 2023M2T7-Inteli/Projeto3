@@ -1,3 +1,5 @@
+// NÃO UTILIZADO ATÉ O MOMENTO 
+
 //  Criar nova pergunta - Letra C no CRUD 
 app.post('/protocolo_perguntas', urlencodedParser, (req,res)=> {
     var db = new sqlite3.Database(PATH); // Abre o banco

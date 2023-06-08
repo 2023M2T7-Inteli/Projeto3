@@ -1,3 +1,5 @@
+// NÃO UTILIZADO ATÉ O MOMENTO 
+
 //  Inserir novo grupo - Letra C no CRUD 
 app.post('/novo_grupo', urlencodedParser, (req,res)=> {
     var db = new sqlite3.Database(PATH); // Abre o banco

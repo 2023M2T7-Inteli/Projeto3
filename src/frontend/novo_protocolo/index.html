@@ -100,7 +100,8 @@
                         <p><input type="checkbox" name="grupos" id="grupo2">Região 2</p>
                         <p><input type="checkbox" name="grupos" id="grupo3">Região 3</p>
 
-                        <p><a href="../Home-pesquisador/"><button id="send-groups" type="button">Enviar</button></a></p>
+                        <p><button id="send-groups" onclick="gerarJSON()" type="button">Enviar</button></p>
+                        <!-- <a href="../Home-pesquisador/"></a> -->
                     </form>
                 </div>
             </div>
@@ -146,6 +147,49 @@
     <script>
         const url = '/';
         fetch(url)
+
+        function gerarJSON() {
+            var inputs_enunciados = document.getElementsByClassName("questions");
+            var inputs_datatype = document.getElementsByClassName("data_type");
+
+            var respostas = [];
+            var tipo_resposta = [];
+
+            for (var i = 0; i < inputs_enunciados.length; i += 1) {
+                var pergunta = inputs_enunciados[i].value;
+                var tipo_resposta = inputs_datatype[i].value;
+
+                var questao;
+
+                if(tipo_resposta === 'select'){
+
+                    var inputs_alternativas = document.getElementsByClassName("alternatives-question" + (i + 1));
+                    var alternativas = [];
+
+                    for (var j = 0; j < inputs_alternativas.length; j += 1) {
+                        alternativas.push(inputs_alternativas[j].value)
+                    }
+
+                    questao = {
+                    pergunta: pergunta,
+                    tipo_resposta: tipo_resposta,
+                    alternativas: alternativas,
+                    };
+
+                } else {
+                    questao = {
+                    pergunta: pergunta,
+                    tipo_resposta: tipo_resposta,
+                    };
+                }
+
+                respostas.push(questao);
+            }
+
+            var respostasJSON = JSON.stringify(respostas);
+            console.log(respostasJSON);
+        }
+
     </script>
 
 </body>

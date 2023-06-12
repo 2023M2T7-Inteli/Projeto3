@@ -9,7 +9,7 @@ function add_question() {
     // Cria uma div com um id de questão único 
     div = document.createElement('div');
     div.id = 'question' + index;
-    div.classList.add('questions');
+    div.classList.add('questions-container');
 
 
     // Adiciona a divisória
@@ -20,6 +20,7 @@ function add_question() {
     // Cria um input para digitar o enunciado da questão
     var input = document.createElement('input');
     input.id = "input" + index
+    input.classList.add('questions')
     input.type = 'text';
     input.placeholder = 'Escreva a questão...';
     var preview_question = "preview-question" + index
@@ -38,6 +39,7 @@ function add_question() {
     // Menu de select com os tipos de resposta aceitos pelo formulário. Serão armazenados na array "types" e adicionados através de um looping
     var input_type = document.createElement('select')
     input_type.name = "input_type"
+    input_type.classList.add('data_type')
 
     var types = ['text', 'date', 'number', 'select']
 
@@ -69,12 +71,12 @@ function add_question() {
         var div_alternative = document.createElement('div')
         div_alternative.id = "alternative" + index_option
         var alternative = document.createElement('input')
-        alternative.className = "alternatives";
+        alternative.classList.add('alternatives-question' + index);
+        alternative.classList.add('alternatives');
         alternative.placeholder = 'Escreva a alternativa...';
 
         alternative.oninput = function () {
             update_preview(div_alternative.parentNode.parentNode, preview_question, 'select')
-            console.log(this.parentNode.parentNode)
         }
 
         var button_add = document.createElement('button');
@@ -195,7 +197,6 @@ function update_preview(question, previewDivId, input_type) {
 
         for(let i = 0; i < types.length; i++){
             var inputValue = types[i].value;
-            console.log(inputValue)
             // Cria um elemento option e define seu valor e conteúdo
             var option = document.createElement('option');
             option.value = inputValue;

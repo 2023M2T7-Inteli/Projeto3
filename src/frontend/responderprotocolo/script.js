@@ -1,26 +1,52 @@
-var express = require("express");
-var app = express();
-var port = process.env.PORT || 3000;
-const bodyParser = require('body-parser');
-const urlencodedParser = bodyParser.urlencoded({ extended: false })
+const on_load = () => {
+  adiciona_protocolo();
+};
 
-const sqlite3 = require('sqlite3').verbose();
-const PATH = "../database/db_obyweb.db";
+const adiciona_protocolo = () => {
+  axios
+    .get(" http://localhost:1234/responderprotocolo/")
 
-app.use(express.static("../frontend/"));
-app.use(express.json())
+    .then((response) => {
+      const pergunta = response.data;
 
-app.post('/responderprotocolo', urlencodedParser, (req,res)=> {
-    var db = new sqlite3.Database(PATH); // Abre o banco
-	sql = "SELECT * FROM Pergunta"
-	console.log(sql);
-	db.run(sql, [],  err => {
-		if (err) {
-		    throw err;
-		}	
-	});
-	res.write('<p>foi</p>');
-	db.close(); // Fecha o banco
-	res.end();
-})
+      console.log(pergunta);
+
+      let array_html_abertas = [];
+      let array_html_enviadas = [];
+
+      pergunta.forEach((pergunta) => {
+        const {  } = pergunta
+        let html = "";
+
+        html += `<div class="amostra">
+        <div class="texto_das_amostras">
+          <h4 class="nome_amostra">${protocolo.NOME}</h4>
+          <p class="validade_amostra">${protocolo.DATA_LIMITE}</p>
+          </div>
+          </div>`;
+
+        if (protocolo.ESTADO === "Em aberto") {
+          array_html_abertas.push(html);
+          // coletas_abertas.innerHTML += html;
+        } else {
+          array_html_enviadas.push(html);
+          // coletas_enviadas.innerHTML += html;
+        }
+
+        console.log(array_html_abertas);
+      });
+      const coletas_abertas = document.getElementById("coletas_abertas");
+      const coletas_enviadas = document.getElementById("coletas_enviadas");
+
+      array_html_abertas.forEach((trecho_html) => {
+        coletas_abertas.innerHTML += trecho_html;
+      });
+      array_html_enviadas.forEach((trecho_html) => {
+        coletas_enviadas.innerHTML += trecho_html;
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 

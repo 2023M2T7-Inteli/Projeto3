@@ -153,3 +153,18 @@ app.get("/visualizar_protocolos", (req, res) => {
   db.close(); // Fecha o banco
 });
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+//responderProtocolo
+app.get("/responder_protocolo", (req, res) => {
+  var db = new sqlite3.Database(PATH); // Abre o banco
+  let sql = "SELECT * FROM PERGUNTAS";
+  console.log(sql);
+  db.all(sql, [], (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    res.json(rows);
+  });
+  db.close(); // Fecha o banco
+});

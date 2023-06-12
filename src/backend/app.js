@@ -158,7 +158,7 @@ app.get("/visualizar_protocolos", (req, res) => {
 //responderProtocolo
 app.get("/responder_protocolo", (req, res) => {
   var db = new sqlite3.Database(PATH); // Abre o banco
-  let sql = "SELECT * FROM PERGUNTAS";
+  let sql = "SELECT * FROM Pergunta";
   console.log(sql);
   db.all(sql, [], (err, rows) => {
     if (err) {

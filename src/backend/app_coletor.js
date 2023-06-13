@@ -14,6 +14,12 @@ app.get("/homecoletor", (req, res) => {
   res.sendFile("homecoletor/homecoletor.html", { root: "../frontend" });
 });
 
+app.get("/homepesquisador", (req, res) => {
+  res.sendFile("home-pesquisador/home-pesquisador.html", {
+    root: "../frontend",
+  });
+});
+
 app.get("/visualizar_protocolos", (req, res) => {
   var db = new sqlite3.Database(PATH); // Abre o banco
   let sql = "SELECT * FROM PROTOCOLO";

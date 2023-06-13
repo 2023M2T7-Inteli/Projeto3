@@ -1,8 +1,8 @@
-const on_load = () => {
-  adiciona_protocolo();
-};
+// const on_load = () => {
+//   adiciona_protocolo();
+// };
 
-const adiciona_protocolo = () => {
+const on_load_coletor = () => {
   axios
     .get(" http://localhost:1234/visualizar_protocolos/")
 

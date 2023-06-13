@@ -150,6 +150,7 @@ label{
     width: 100%;
     height: auto;
     flex-wrap: wrap;
+    align-items: center;
 }
 .inline{
     display: flex;
@@ -174,32 +175,11 @@ li {
     font-size: 14px;
 }
 
-.multipleChoice{
-    display: block;
-}
-
-.radio{
-    display: inline-block;
-    margin-left: 3rem;
-}
-
-.inputIcon input[type-text]{
-    padding-left: 40px;
-}
-
-.inputIcon{
-    position:relative;
-}
-
-.inputIcon i{
-    position: absolute;
-    left: 4px;
-    top:4px;
-}
-h4{
-    padding-top: 2rem;
-}
-#questao{
-    align-items: center;
+.wrapper3 {
+    width: 100vw;
+    height: 20vh;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
+    align-items: center;
 }

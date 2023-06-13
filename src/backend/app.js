@@ -159,6 +159,7 @@ app.get("/visualizar_protocolos", (req, res) => {
 app.get("/responder_protocolo", (req, res) => {
   var db = new sqlite3.Database(PATH); // Abre o banco
   let sql = "SELECT * FROM Pergunta";
+  res.setHeader('Access-Control-Allow-Origin', '*');
   console.log(sql);
   db.all(sql, [], (err, rows) => {
     if (err) {

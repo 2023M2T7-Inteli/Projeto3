@@ -1,3 +1,5 @@
+// NÃO UTILIZADO ATÉ O MOMENTO 
+
 //  Inserir novo usuário na tabela "PESQUISADOR" - Letra C no CRUD 
 app.post('/cadastrado_pesquisador', urlencodedParser, (req,res)=> {
     var db = new sqlite3.Database(PATH); // Abre o banco

@@ -25,7 +25,7 @@
         <div class="container" id="nav-container">
             <nav class="navbar navbar-expand-lg fixed-top">
                 <a href="#" class="navbar-brand">
-                    <img id="logo" src="img/logo.svg" alt="Obyweb logo">
+                    <img id="logo" src="../img/logo.svg" alt="Obyweb logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="bi bi-list align-self-center"></i>
@@ -95,12 +95,13 @@
                 <div class="modal-body modal-body-scroll">
                     <p>Selecione para quais grupos este protocolo deve ser enviado:</p>
                     <br>
-                    <form action="\index.html" method="post">
+                    <form>
                         <p><input type="checkbox" name="grupos" id="grupo1">Região 1</p>
                         <p><input type="checkbox" name="grupos" id="grupo2">Região 2</p>
                         <p><input type="checkbox" name="grupos" id="grupo3">Região 3</p>
 
-                        <p><button id="send-groups" type="submit">Enviar</button></p>
+                        <p><button id="send-groups" onclick="gerarJSON()" type="button">Enviar</button></p>
+                        <!-- <a href="../Home-pesquisador/"></a> -->
                     </form>
                 </div>
             </div>
@@ -146,6 +147,49 @@
     <script>
         const url = '/';
         fetch(url)
+
+        function gerarJSON() {
+            var inputs_enunciados = document.getElementsByClassName("questions");
+            var inputs_datatype = document.getElementsByClassName("data_type");
+
+            var respostas = [];
+            var tipo_resposta = [];
+
+            for (var i = 0; i < inputs_enunciados.length; i += 1) {
+                var pergunta = inputs_enunciados[i].value;
+                var tipo_resposta = inputs_datatype[i].value;
+
+                var questao;
+
+                if(tipo_resposta === 'select'){
+
+                    var inputs_alternativas = document.getElementsByClassName("alternatives-question" + (i + 1));
+                    var alternativas = [];
+
+                    for (var j = 0; j < inputs_alternativas.length; j += 1) {
+                        alternativas.push(inputs_alternativas[j].value)
+                    }
+
+                    questao = {
+                    pergunta: pergunta,
+                    tipo_resposta: tipo_resposta,
+                    alternativas: alternativas,
+                    };
+
+                } else {
+                    questao = {
+                    pergunta: pergunta,
+                    tipo_resposta: tipo_resposta,
+                    };
+                }
+
+                respostas.push(questao);
+            }
+
+            var respostasJSON = JSON.stringify(respostas);
+            console.log(respostasJSON);
+        }
+
     </script>
 
 </body>

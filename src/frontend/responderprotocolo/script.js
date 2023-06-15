@@ -12,7 +12,7 @@ const adiciona_pergunta = () => {
 
       perguntas.forEach((pergunta) => { //dá pra adicionar um if pro tipo da pergunta
         let html = "";
-        html += "<div><h4>" + pergunta.PERGUNTA + "</h4><input></div>";
+        html += "<div><h4>" + pergunta.PERGUNTA + "</h4><input class='resposta'></div>";
 
         console.log(html);
         document.getElementById("perguntas").innerHTML = html;
@@ -23,6 +23,30 @@ const adiciona_pergunta = () => {
     });
 };
 
+function generateId() {
+    const random = Math.floor(Math.random() * 100);
+    return random; // Retorna o valor gerado
+}
 
-            // <div id="perguntas">
-            // </div>
+$("#enviar").on('click', function () {
+    const input = document.getElementsByClassName("texto")[0];
+    const id = generateId(); // Função para gerar um ID único
+    const requestData = { id: id, resposta: input };
+
+    console.log(JSON.stringify(requestData));
+
+    fetch("http://localhost:1234/responder_protocolo", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(requestData)
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+    });
+});

@@ -176,10 +176,18 @@ li {
 }
 
 .wrapper3 {
-    width: 100vw;
     height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:auto
+}
+
+#enviar{
+    width: 10vw;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin:auto;
 }

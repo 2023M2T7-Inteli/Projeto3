@@ -169,3 +169,17 @@ app.get("/responder_protocolo", (req, res) => {
   });
   db.close(); // Fecha o banco
 });
+
+app.post("/responder_protocolo", (req, res) => {
+  var db = new sqlite3.Database(PATH); // Abre o banco
+  let sql = "INSERT INTO Resposta (RESPOSTA) VALUES ('req.body.resposta')";
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  console.log(sql);
+  db.all(sql, [], (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    res.json(rows);
+  });
+  db.close(); // Fecha o banco
+});

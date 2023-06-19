@@ -126,7 +126,7 @@ function askfile() {
 
     img_div = document.createElement('div');
     img_div.id = 'image' + index_img;
-    img_div.classList.add('images');
+    img_div.classList.add('images-container');
     
     // Adiciona a divisória
     var hr = document.createElement('hr');
@@ -136,6 +136,7 @@ function askfile() {
     // Cria um input para digitar o enunciado da questão
     var input = document.createElement('input');
     input.id = "input" + index_img
+    input.classList.add('images')
     input.type = 'text';
     input.placeholder = 'Escreva qual foto deve ser enviada...';
     var preview_question = "preview-images" + index_img

@@ -175,7 +175,7 @@ button:focus {
 }
 
 #send-form,
-#send-groups {
+#send-all {
   width: 100%;
   margin: auto;
   margin-top: 3rem;

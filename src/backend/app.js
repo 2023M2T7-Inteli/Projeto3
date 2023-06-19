@@ -194,7 +194,7 @@ app.get("/visualizar_perguntas", (req, res) => {
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 //responderProtocolo
-app.get("/responder_protocolo", (req, res) => {
+app.get("/visualizar_perguntas", (req, res) => {
   var db = new sqlite3.Database(PATH); // Abre o banco
   let sql = "SELECT * FROM Pergunta";
   res.setHeader("Access-Control-Allow-Origin", "*");

@@ -3,8 +3,10 @@ const on_load = () => {
 };
 
 const adiciona_pergunta = () => {
+
+  console.log('entrou na funcao')
   axios
-    .get("http://localhost:1234/responder_protocolo")
+    .get("http://localhost:1234/visualizar_perguntas")
     .then((response) => {
       console.log(response);
       const perguntas = response.data;
@@ -23,30 +25,30 @@ const adiciona_pergunta = () => {
     });
 };
 
-function generateId() {
-    const random = Math.floor(Math.random() * 100);
-    return random; // Retorna o valor gerado
-}
+// function generateId() {
+//     const random = Math.floor(Math.random() * 100);
+//     return random; // Retorna o valor gerado
+// }
 
-$("#enviar").on('click', function () {
-    const input = document.getElementsByClassName("texto")[0];
-    const id = generateId(); // Função para gerar um ID único
-    const requestData = { id: id, resposta: input };
+// $("#enviar").on('click', function () {
+//     const input = document.getElementsByClassName("texto")[0];
+//     const id = generateId(); // Função para gerar um ID único
+//     const requestData = { id: id, resposta: input };
 
-    console.log(JSON.stringify(requestData));
+//     console.log(JSON.stringify(requestData));
 
-    fetch("http://localhost:1234/responder_protocolo", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(requestData)
-    })
-    .then(res => res.json())
-    .then(data => {
-        console.log(data);
-    })
-    .catch(error => {
-        console.error('Erro:', error);
-    });
-});
+//     fetch("http://localhost:1234/visualizar_perguntas", {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify(requestData)
+//     })
+//     .then(res => res.json())
+//     .then(data => {
+//         console.log(data);
+//     })
+//     .catch(error => {
+//         console.error('Erro:', error);
+//     });
+// });

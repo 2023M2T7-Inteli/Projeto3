@@ -176,28 +176,13 @@ app.get("/visualizar_protocolos", (req, res) => {
   });
   db.close(); // Fecha o banco
 });
-
-// ***********************************************************************
-app.get("/visualizar_perguntas", (req, res) => {
-  var db = new sqlite3.Database(PATH); // Abre o banco
-  let sql = "SELECT * FROM PROTOCOLO";
-  console.log(sql);
-  db.all(sql, [], (err, rows) => {
-    if (err) {
-      throw err;
-    }
-    res.json(rows);
-  });
-  db.close(); // Fecha o banco
-});
-
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 //responderProtocolo
 app.get("/visualizar_perguntas", (req, res) => {
   var db = new sqlite3.Database(PATH); // Abre o banco
   let sql = "SELECT * FROM Pergunta";
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader('Access-Control-Allow-Origin', '*');
   console.log(sql);
   db.all(sql, [], (err, rows) => {
     if (err) {
@@ -211,7 +196,7 @@ app.get("/visualizar_perguntas", (req, res) => {
 app.post("/responder_protocolo", (req, res) => {
   var db = new sqlite3.Database(PATH); // Abre o banco
   let sql = "INSERT INTO Resposta (RESPOSTA) VALUES ('req.body.resposta')";
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader('Access-Control-Allow-Origin', '*');
   console.log(sql);
   db.all(sql, [], (err, rows) => {
     if (err) {

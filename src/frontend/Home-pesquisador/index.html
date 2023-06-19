@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
@@ -14,8 +14,7 @@
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <title>Criar protocolo</title>
 </head>
-<body onload="on_load_pesquisador()"> 
-    <script src="script.js"></script>
+<body onload="on_load_pesquisador()">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -79,11 +78,11 @@
             </article>
             <article class="column">
                 <div class="column-title"><strong>Protocolos Enviados</strong></div>
-                <div class="card"></div>
+                <div id="cardEnviados"></div>
             </article>
             <article class="column">
                 <div class="column-title"><strong>Protocolos Recebidos </strong> </div>
-                <div class="card"></div>
+                <div id="cardRecebidos"></div>
             </article>
             </div>
         </section>
@@ -115,9 +114,7 @@
 
 
 
-    <script>
-        const url = '/';
-        fetch(url)
-    </script>
-
+    <script src="fornece_protocolo_pesquisador.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</body>
 </html>

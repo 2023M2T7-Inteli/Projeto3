@@ -16,7 +16,12 @@ app.get("/", (req, res) => {
 });
 
 app.get("/home-pesquisador", (req, res) => {
-  const filePath = "/home-pesquisador/index.html";
+  const filePath = "/home-pesquisador";
+  res.sendFile(filePath, { root: "../frontend" });
+});
+
+app.get("/responder-protocolo", (req, res) => {
+  const filePath = "/responderprotocolo/index.html";
   res.sendFile(filePath, { root: "../frontend" });
 });
 
@@ -140,75 +145,97 @@ app.get("/remove_Usuario", urlencodedParser, (req, res) => {
   db.close(); // Fecha o banco
 });
 
-app.post('/criar_protocolo', (req, res) => {
-	var db = new sqlite3.Database(PATH); // Open the database
-	var sql = "INSERT INTO Protocolo (nome, descricao, data_limite, estado) VALUES (?, ?, ?, ?)";
-	console.log(req.body);
-	var values = [req.body[0].nome, req.body[0].descricao, req.body[0].data_limite, req.body[0].estado];
-	console.log(values);
-  
-	db.run(sql, values, function(err) {
-	  if (err) {
-		throw err;
-	  }
-	  var protocolo_ID = this.lastID;
-  
-	  for (var i = 1; i < req.body.length - 1; i++) {
-		if (req.body[i].tipo_resposta === 'select' && req.body[i].alternativas && req.body[i].alternativas.length > 0) {
-		  sql = "INSERT INTO Pergunta (pergunta, tipo_input, id_protocolo) VALUES (?, ?, ?)";
-		  values = [req.body[i].pergunta, req.body[i].tipo_resposta, protocolo_ID];
-		  console.log(values);
-  
-		  db.run(sql, values, function(err) {
-			if (err) {
-			  throw err;
-			}
-			var pergunta_ID = this.lastID;
-  
-			req.body[i].alternativas.forEach((alternativa) => {
-			  sql = "INSERT INTO Alternativa (Alternativa, ID_PERGUNTA) VALUES (?, ?)";
-			  values = [alternativa, pergunta_ID];
-			  console.log(values);
-  
-			  db.run(sql, values, function(err) {
-				if (err) {
-				  throw err;
-				}
-			  });
-			});
-		  });
-		} else{
-		  sql = "INSERT INTO Pergunta (pergunta, tipo_input, id_protocolo) VALUES (?, ?, ?)";
-		  values = [req.body[i].pergunta, req.body[i].tipo_resposta, protocolo_ID];
-		  console.log(values);
-  
-		  db.run(sql, values, function(err) {
-			if (err) {
-			  throw err;
-			}
-		  });
-		}
-	  }
-  
-	  for (var i = 1; i < req.body.length; i++) {
-		if (req.body[i].imagem) {
-		  sql = "INSERT INTO Requisicao_imagem (pergunta, id_protocolo) VALUES (?, ?)";
-		  values = [req.body[i].imagem, protocolo_ID];
-		  console.log(values);
-  
-		  db.run(sql, values, function(err) {
-			if (err) {
-			  throw err;
-			}
-		  });
-		}
-	  }
-  
-	  db.close(); // Close the database connection
-	});
-  
-	res.end();
+app.post("/criar_protocolo", (req, res) => {
+  var db = new sqlite3.Database(PATH); // Open the database
+  var sql =
+    "INSERT INTO Protocolo (nome, descricao, data_limite, estado) VALUES (?, ?, ?, ?)";
+  console.log(req.body);
+  var values = [
+    req.body[0].nome,
+    req.body[0].descricao,
+    req.body[0].data_limite,
+    req.body[0].estado,
+  ];
+  console.log(values);
+
+  db.run(sql, values, function (err) {
+    if (err) {
+      throw err;
+    }
+    var protocolo_ID = this.lastID;
+
+    for (var i = 1; i < req.body.length - 1; i++) {
+      if (
+        req.body[i].tipo_resposta === "select" &&
+        req.body[i].alternativas &&
+        req.body[i].alternativas.length > 0
+      ) {
+        sql =
+          "INSERT INTO Pergunta (pergunta, tipo_input, id_protocolo) VALUES (?, ?, ?)";
+        values = [
+          req.body[i].pergunta,
+          req.body[i].tipo_resposta,
+          protocolo_ID,
+        ];
+        console.log(values);
+
+        db.run(sql, values, function (err) {
+          if (err) {
+            throw err;
+          }
+          var pergunta_ID = this.lastID;
+
+          req.body[i].alternativas.forEach((alternativa) => {
+            sql =
+              "INSERT INTO Alternativa (Alternativa, ID_PERGUNTA) VALUES (?, ?)";
+            values = [alternativa, pergunta_ID];
+            console.log(values);
+
+            db.run(sql, values, function (err) {
+              if (err) {
+                throw err;
+              }
+            });
+          });
+        });
+      } else {
+        sql =
+          "INSERT INTO Pergunta (pergunta, tipo_input, id_protocolo) VALUES (?, ?, ?)";
+        values = [
+          req.body[i].pergunta,
+          req.body[i].tipo_resposta,
+          protocolo_ID,
+        ];
+        console.log(values);
+
+        db.run(sql, values, function (err) {
+          if (err) {
+            throw err;
+          }
+        });
+      }
+    }
+
+    for (var i = 1; i < req.body.length; i++) {
+      if (req.body[i].imagem) {
+        sql =
+          "INSERT INTO Requisicao_imagem (pergunta, id_protocolo) VALUES (?, ?)";
+        values = [req.body[i].imagem, protocolo_ID];
+        console.log(values);
+
+        db.run(sql, values, function (err) {
+          if (err) {
+            throw err;
+          }
+        });
+      }
+    }
+
+    db.close(); // Close the database connection
   });
+
+  res.end();
+});
 
 // ***********************************************************************
 app.get("/visualizar_protocolos", (req, res) => {
@@ -229,7 +256,7 @@ app.get("/visualizar_protocolos", (req, res) => {
 app.get("/responder_protocolo", (req, res) => {
   var db = new sqlite3.Database(PATH); // Abre o banco
   let sql = "SELECT * FROM Pergunta";
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader("Access-Control-Allow-Origin", "*");
   console.log(sql);
   db.all(sql, [], (err, rows) => {
     if (err) {
@@ -243,7 +270,7 @@ app.get("/responder_protocolo", (req, res) => {
 app.post("/responder_protocolo", (req, res) => {
   var db = new sqlite3.Database(PATH); // Abre o banco
   let sql = "INSERT INTO Resposta (RESPOSTA) VALUES ('req.body.resposta')";
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader("Access-Control-Allow-Origin", "*");
   console.log(sql);
   db.all(sql, [], (err, rows) => {
     if (err) {

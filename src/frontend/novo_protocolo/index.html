@@ -116,6 +116,7 @@
         // Variáveis que vão armazenar todos os dados para envio em formato de JSON
         var protocolo_dados
         var questao;
+        var imagens_array = []
         var imagens
 
         var data = []
@@ -175,8 +176,9 @@
                 imagens = {
                     imagem: imagem,
                 }
-                data.push(imagens);
+                imagens_array.push(imagens);
             }
+            data.push(imagens_array);
 
         }
         console.log(data)

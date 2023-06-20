@@ -145,91 +145,61 @@ app.get("/remove_Usuario", urlencodedParser, (req, res) => {
   db.close(); // Fecha o banco
 });
 
-app.post("/criar_protocolo", (req, res) => {
+app.post('/criar_protocolo', (req, res) => {
   var db = new sqlite3.Database(PATH); // Open the database
-  var sql =
-    "INSERT INTO Protocolo (nome, descricao, data_limite, estado) VALUES (?, ?, ?, ?)";
+  var sql = "INSERT INTO Protocolo (nome, descricao, data_limite, estado) VALUES (?, ?, ?, ?)";
   console.log(req.body);
-  var values = [
-    req.body[0].nome,
-    req.body[0].descricao,
-    req.body[0].data_limite,
-    req.body[0].estado,
-  ];
+  var values = [req.body[0].nome, req.body[0].descricao, req.body[0].data_limite, req.body[0].estado];
   console.log(values);
 
-  db.run(sql, values, function (err) {
+  db.run(sql, values, function(err) {
     if (err) {
       throw err;
     }
     var protocolo_ID = this.lastID;
 
-    for (var i = 1; i < req.body.length - 1; i++) {
-      if (
-        req.body[i].tipo_resposta === "select" &&
-        req.body[i].alternativas &&
-        req.body[i].alternativas.length > 0
-      ) {
-        sql =
-          "INSERT INTO Pergunta (pergunta, tipo_input, id_protocolo) VALUES (?, ?, ?)";
-        values = [
-          req.body[i].pergunta,
-          req.body[i].tipo_resposta,
-          protocolo_ID,
-        ];
-        console.log(values);
+    var perguntas = req.body.slice(1, req.body.length - 1); // Remove o primeiro e último elemento (dados do protocolo e imagens)
+    
+    var imagens = req.body[req.body.length - 1]; // Último elemento contém as imagens
 
-        db.run(sql, values, function (err) {
-          if (err) {
-            throw err;
-          }
-          var pergunta_ID = this.lastID;
+    perguntas.forEach((pergunta) => {
+      sql = "INSERT INTO Pergunta (pergunta, tipo_input, id_protocolo) VALUES (?, ?, ?)";
+      values = [pergunta.pergunta, pergunta.tipo_resposta, protocolo_ID];
+      console.log(values);
 
-          req.body[i].alternativas.forEach((alternativa) => {
-            sql =
-              "INSERT INTO Alternativa (Alternativa, ID_PERGUNTA) VALUES (?, ?)";
+      db.run(sql, values, function(err) {
+        if (err) {
+          throw err;
+        }
+        var pergunta_ID = this.lastID;
+
+        if (pergunta.tipo_resposta === 'select' && pergunta.alternativas && pergunta.alternativas.length > 0) {
+          pergunta.alternativas.forEach((alternativa) => {
+            sql = "INSERT INTO Alternativa (Alternativa, ID_PERGUNTA) VALUES (?, ?)";
             values = [alternativa, pergunta_ID];
             console.log(values);
 
-            db.run(sql, values, function (err) {
+            db.run(sql, values, function(err) {
               if (err) {
                 throw err;
               }
             });
           });
-        });
-      } else {
-        sql =
-          "INSERT INTO Pergunta (pergunta, tipo_input, id_protocolo) VALUES (?, ?, ?)";
-        values = [
-          req.body[i].pergunta,
-          req.body[i].tipo_resposta,
-          protocolo_ID,
-        ];
-        console.log(values);
+        }
+      });
+    });
 
-        db.run(sql, values, function (err) {
-          if (err) {
-            throw err;
-          }
-        });
-      }
-    }
+    imagens.forEach((imagem) => {
+      sql = "INSERT INTO Requisicao_imagem (pergunta, id_protocolo) VALUES (?, ?)";
+      values = [imagem.imagem, protocolo_ID];
+      console.log(values);
 
-    for (var i = 1; i < req.body.length; i++) {
-      if (req.body[i].imagem) {
-        sql =
-          "INSERT INTO Requisicao_imagem (pergunta, id_protocolo) VALUES (?, ?)";
-        values = [req.body[i].imagem, protocolo_ID];
-        console.log(values);
-
-        db.run(sql, values, function (err) {
-          if (err) {
-            throw err;
-          }
-        });
-      }
-    }
+      db.run(sql, values, function(err) {
+        if (err) {
+          throw err;
+        }
+      });
+    });
 
     db.close(); // Close the database connection
   });

@@ -203,7 +203,6 @@ app.post('/criar_protocolo', (req, res) => {
 
     db.close(); // Close the database connection
   });
-
   res.end();
 });
 

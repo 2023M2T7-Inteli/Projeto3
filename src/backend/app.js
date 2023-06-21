@@ -20,10 +20,10 @@ app.get("/home-pesquisador", (req, res) => {
   res.sendFile(filePath, { root: "../frontend" });
 });
 
-app.get("/responder-protocolo", (req, res) => {
-  const filePath = "/responderprotocolo/index.html";
-  res.sendFile(filePath, { root: "../frontend" });
-});
+// app.get("/responder-protocolo", (req, res) => {                   //tentar fazer funcionar
+//   const filePath = "/responderprotocolo/index.html";
+//   res.sendFile(filePath, { root: "../frontend" });
+// });
 
 //  Inserir novo Usuario na tabela - Letra C no CRUD
 app.post("/cadastrado_Usuario", urlencodedParser, (req, res) => {
@@ -252,8 +252,7 @@ app.get("/visualizar_protocolos", (req, res) => {
 });
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-//responderProtocolo
-app.get("/responder_protocolo", (req, res) => {
+app.get("/visualizar_perguntas", (req, res) => {
   var db = new sqlite3.Database(PATH); // Abre o banco
   let sql = "SELECT * FROM Pergunta";
   res.setHeader("Access-Control-Allow-Origin", "*");

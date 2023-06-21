@@ -222,10 +222,10 @@ app.get("/visualizar_protocolos", (req, res) => {
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 //responderProtocolo
-app.get("/responder_protocolo", (req, res) => {
+app.post("/responder_protocolo", (req, res) => {
   var db = new sqlite3.Database(PATH); // Abre o banco
-  let sql = "SELECT * FROM Pergunta";
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  let sql = "SELECT * FROM Pergunta WHERE ID_PROTOCOLO =" + req.body.id_protocolo;
+  res.setHeader('Access-Control-Allow-Origin', '*');
   console.log(sql);
   db.all(sql, [], (err, rows) => {
     if (err) {

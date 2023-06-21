@@ -164,28 +164,28 @@ app.post("/criar_protocolo", (req, res) => {
     }
     var protocolo_ID = this.lastID;
 
-    for (var i = 1; i < req.body.length - 1; i++) {
-      if (
-        req.body[i].tipo_resposta === "select" &&
-        req.body[i].alternativas &&
-        req.body[i].alternativas.length > 0
-      ) {
-        sql =
-          "INSERT INTO Pergunta (pergunta, tipo_input, id_protocolo) VALUES (?, ?, ?)";
-        values = [
-          req.body[i].pergunta,
-          req.body[i].tipo_resposta,
-          protocolo_ID,
-        ];
-        console.log(values);
+    var perguntas = req.body.slice(1, req.body.length - 1); // Remove o primeiro e último elemento (dados do protocolo e imagens)
 
-        db.run(sql, values, function (err) {
-          if (err) {
-            throw err;
-          }
-          var pergunta_ID = this.lastID;
+    var imagens = req.body[req.body.length - 1]; // Último elemento contém as imagens
 
-          req.body[i].alternativas.forEach((alternativa) => {
+    perguntas.forEach((pergunta) => {
+      sql =
+        "INSERT INTO Pergunta (pergunta, tipo_input, id_protocolo) VALUES (?, ?, ?)";
+      values = [pergunta.pergunta, pergunta.tipo_resposta, protocolo_ID];
+      console.log(values);
+
+      db.run(sql, values, function (err) {
+        if (err) {
+          throw err;
+        }
+        var pergunta_ID = this.lastID;
+
+        if (
+          pergunta.tipo_resposta === "select" &&
+          pergunta.alternativas &&
+          pergunta.alternativas.length > 0
+        ) {
+          pergunta.alternativas.forEach((alternativa) => {
             sql =
               "INSERT INTO Alternativa (Alternativa, ID_PERGUNTA) VALUES (?, ?)";
             values = [alternativa, pergunta_ID];
@@ -197,43 +197,25 @@ app.post("/criar_protocolo", (req, res) => {
               }
             });
           });
-        });
-      } else {
-        sql =
-          "INSERT INTO Pergunta (pergunta, tipo_input, id_protocolo) VALUES (?, ?, ?)";
-        values = [
-          req.body[i].pergunta,
-          req.body[i].tipo_resposta,
-          protocolo_ID,
-        ];
-        console.log(values);
+        }
+      });
+    });
 
-        db.run(sql, values, function (err) {
-          if (err) {
-            throw err;
-          }
-        });
-      }
-    }
+    imagens.forEach((imagem) => {
+      sql =
+        "INSERT INTO Requisicao_imagem (pergunta, id_protocolo) VALUES (?, ?)";
+      values = [imagem.imagem, protocolo_ID];
+      console.log(values);
 
-    for (var i = 1; i < req.body.length; i++) {
-      if (req.body[i].imagem) {
-        sql =
-          "INSERT INTO Requisicao_imagem (pergunta, id_protocolo) VALUES (?, ?)";
-        values = [req.body[i].imagem, protocolo_ID];
-        console.log(values);
-
-        db.run(sql, values, function (err) {
-          if (err) {
-            throw err;
-          }
-        });
-      }
-    }
+      db.run(sql, values, function (err) {
+        if (err) {
+          throw err;
+        }
+      });
+    });
 
     db.close(); // Close the database connection
   });
-
   res.end();
 });
 
@@ -252,9 +234,11 @@ app.get("/visualizar_protocolos", (req, res) => {
 });
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+//responderProtocolo
 app.get("/visualizar_perguntas", (req, res) => {
   var db = new sqlite3.Database(PATH); // Abre o banco
-  let sql = "SELECT * FROM Pergunta";
+  let sql =
+    "SELECT * FROM Pergunta WHERE ID_PROTOCOLO =" + req.body.id_protocolo;
   res.setHeader("Access-Control-Allow-Origin", "*");
   console.log(sql);
   db.all(sql, [], (err, rows) => {

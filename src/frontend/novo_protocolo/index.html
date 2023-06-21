@@ -82,6 +82,7 @@
                 </div>
 
                 <button type="button" id="send-form" class="btn btn-primary" onclick="enviarDatabase()">Enviar Perguntas</button>
+                <div id="myToast" class="toast"></div>
             </div>
         </div>
     </main>
@@ -113,9 +114,22 @@
 
 
     <script>
+
+        function showToast() {
+            var toast = document.getElementById("myToast");
+            toast.innerHTML = "Protocolo enviado!";
+            toast.classList.add("show");
+            
+            setTimeout(function(){
+                toast.classList.remove("show");
+                window.location.href = '/Home-pesquisador'
+            }, 3000);
+        }
+
         // Variáveis que vão armazenar todos os dados para envio em formato de JSON
         var protocolo_dados
         var questao;
+        var imagens_array = []
         var imagens
 
         var data = []
@@ -175,11 +189,11 @@
                 imagens = {
                     imagem: imagem,
                 }
-                data.push(imagens);
+                imagens_array.push(imagens);
             }
+            data.push(imagens_array);
 
         }
-        console.log(data)
 
         // Adiciona um ouvinte de evento ao formulário para capturar o evento de submissão
         document.getElementById("send-form").addEventListener("click", function(event) {
@@ -193,6 +207,7 @@
             .then(function(response) {
                 if (response.ok) {
                 console.log('Dados enviados com sucesso para o banco de dados.');
+                showToast()
                 // Realizar ações adicionais após o envio dos dados
                 } else {
                 console.log('Ocorreu um erro ao enviar os dados para o banco de dados.');

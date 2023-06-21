@@ -3,6 +3,7 @@ var app = express();
 var port = process.env.PORT || 1234;
 const bodyParser = require("body-parser");
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
+const path = require('path')
 
 const sqlite3 = require("sqlite3").verbose();
 const PATH = "../database/db_obyweb2.db";
@@ -234,12 +235,37 @@ app.get("/visualizar_protocolos", (req, res) => {
 });
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+var id
+app.get('/responderprotocolo/:id', (req, res) => {
+  id = req.params.id;
+  // Envie o arquivo index.html como resposta
+  const responderProtocoloDir = path.join(__dirname, '..', 'frontend', 'responderprotocolo');
+  res.sendFile(path.join(responderProtocoloDir, 'index.html'));
+  // Envie o arquivo index.html como resposta
+});
+
+
 //responderProtocolo
-app.get("/visualizar_perguntas", (req, res) => {
+app.get("/visualizar_perguntas/:id", (req, res) => {
   console.log("rota");
   var db = new sqlite3.Database(PATH); // Abre o banco
-  let sql = "SELECT * FROM Pergunta";
+  let sql = "SELECT * FROM Pergunta WHERE ID_PROTOCOLO = " + req.params.id;
   res.setHeader("Access-Control-Allow-Origin", "*");
+  console.log(sql);
+  db.all(sql, [], (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    res.json(rows);
+    console.log(rows)
+  });
+  db.close(); // Fecha o banco
+});
+
+app.get("/visualizar_responder_protocolo/:id", (req, res) => {
+  var db = new sqlite3.Database(PATH); // Abre o banco
+  let sql = "SELECT * FROM Pergunta WHERE ID_PROTOCOLO =" + req.params.id;
+  res.setHeader('Access-Control-Allow-Origin', '*');
   console.log(sql);
   db.all(sql, [], (err, rows) => {
     if (err) {

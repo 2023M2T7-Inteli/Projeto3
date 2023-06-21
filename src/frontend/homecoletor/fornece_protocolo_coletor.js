@@ -4,18 +4,17 @@ function redirecionaHomeColetor(id_protocolo) {
   var data = {
     "id_protocolo": id_protocolo
   };
-  const url = '/responder_protocolo'; // Define a URL da rota do backend
+  const url = '/visualizar_responder_protocolo/' + `${id_protocolo}`; // Define a URL da rota do backend
   // Envia uma requisição POST para o backend com os dados do usuário
   fetch(url, {
-    method: 'POST',
-    body: JSON.stringify(data), // Converte o objeto em uma string JSON
+    method: 'GET',
     headers: {
       'Content-Type': 'application/json'
     }
   }).then((response) => {
     // Verifica se a resposta da requisição foi bem-sucedida
     if (response.ok) {
-      window.location.pathname('')
+      window.location.href = '/responderprotocolo/' + `${id_protocolo}`;
       // Analisa a resposta JSON
       response.json()
       console
@@ -36,8 +35,7 @@ axios
     protocolos.forEach((protocolo) => {
       const { nome, descricao, data_limite, estado, id_protocolo } = protocolo;
       let html = "";
-      html += `<div class="amostra" >
-      <a onclick="transformaPagina()">
+      html += `<div class="amostra" onclick="redirecionaHomeColetor(${protocolo.ID_PROTOCOLO})">
       <img
         class="imagens_das_amostras"
         src="../img/img_fruta_teste.jpg"
@@ -47,7 +45,7 @@ axios
         <h4 class="nome_amostra">${protocolo.NOME}</h4>
         <p class="validade_amostra">${protocolo.DATA_LIMITE}</p>
         <input id="${protocolo.ID_PROTOCOLO}" type="hidden" value="${protocolo.ID_PROTOCOLO}">
-        </div></a>
+        </div>
         </div>`;
       if (protocolo.ESTADO === "Em aberto") {
         array_html_abertas.push(html);

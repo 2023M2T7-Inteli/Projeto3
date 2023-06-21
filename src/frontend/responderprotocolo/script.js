@@ -36,8 +36,13 @@ const on_load = () => {
     };
 
     const adiciona_pergunta = () => {
+      const path = window.location.pathname
+      const id_url = path.split('/').pop()
+
+      console.log('ID: ', id_url)
+
       axios
-        .get("http://localhost:1234/visualizar_perguntas")
+        .get("http://localhost:1234/visualizar_perguntas/" + id_url)
         .then((response) => {
           const perguntas = response.data;
           console.log(perguntas);

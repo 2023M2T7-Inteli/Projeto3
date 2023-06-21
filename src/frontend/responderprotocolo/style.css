@@ -143,18 +143,18 @@ label{
 
 
 /*protocolo*/
-
-
-.flex-container {
+/* .flex-container {
     margin-top: 5%;
     width: 100%;
     height: auto;
     flex-wrap: wrap;
     align-items: center;
 }
-.inline{
+
+.inline {
     display: flex;
 }
+
 .row {
     padding: 1rem;
 }
@@ -162,6 +162,7 @@ label{
 .container2 {
     max-width: 450px;
     padding: 0 20px;
+    margin: auto;
 }
 
 .wrapper {
@@ -180,14 +181,32 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin:auto
 }
 
-#enviar{
+#enviar {
     width: 10vw;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin: auto;
+} */
+
+.input-container {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* .input-container label {
+    display: block;
+    margin-bottom: 5px;
     margin:auto;
+} */
+
+.input-container input,
+.input-container select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid var(--gray-light);
+    border-radius: 5px;
 }

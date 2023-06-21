@@ -236,9 +236,9 @@ app.get("/visualizar_protocolos", (req, res) => {
 
 //responderProtocolo
 app.get("/visualizar_perguntas", (req, res) => {
+  console.log("rota");
   var db = new sqlite3.Database(PATH); // Abre o banco
-  let sql =
-    "SELECT * FROM Pergunta WHERE ID_PROTOCOLO =" + req.body.id_protocolo;
+  let sql = "SELECT * FROM Pergunta";
   res.setHeader("Access-Control-Allow-Origin", "*");
   console.log(sql);
   db.all(sql, [], (err, rows) => {

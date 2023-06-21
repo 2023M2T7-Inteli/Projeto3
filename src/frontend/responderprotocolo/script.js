@@ -7,6 +7,7 @@ const adiciona_pergunta = () => {
     .get("http://localhost:1234/visualizar_perguntas")
     .then((response) => {
       const perguntas = response.data;
+      console.log(perguntas);
 
       perguntas.forEach((pergunta) => {
         console.log("entra no loop");
@@ -19,10 +20,7 @@ const adiciona_pergunta = () => {
 
         console.log(html);
         document.getElementById("perguntas").innerHTML = html;
-        let resposta = document.getElementsByClassName(".resposta").value;
-        const array = array.push(resposta);
       });
-      console.log(array);
     })
     .catch((error) => {
       console.log(error);

@@ -275,6 +275,13 @@ app.get('/responderprotocolo/:id', (req, res) => {
   // Envie o arquivo index.html como resposta
 });
 
+app.get('/visualizar_protocolo/:id', (req, res) => {
+  id = req.params.id;
+  // Envie o arquivo index.html como resposta
+  const responderProtocoloDir = path.join(__dirname, '..', 'frontend', 'visualizar_protocolo');
+  res.sendFile(path.join(responderProtocoloDir, 'index.html'));
+  // Envie o arquivo index.html como resposta
+});
 
 //responderProtocolo
 app.get("/visualizar_perguntas/:id", (req, res) => {

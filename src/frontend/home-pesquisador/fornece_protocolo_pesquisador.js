@@ -1,3 +1,31 @@
+function abreProtocolo(id_protocolo) {
+  // Cria um objeto com os dados do usuário
+  console.log(id_protocolo)
+  var data = {
+    "id_protocolo": id_protocolo
+  };
+  const url = 'visualizar_protocolos_pesquisador/' + `${id_protocolo}`; // Define a URL da rota do backend
+  // Envia uma requisição POST para o backend com os dados do usuário
+  fetch(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then((response) => {
+    // Verifica se a resposta da requisição foi bem-sucedida
+    if (response.ok) {
+      window.location.href = '/responderprotocolo/' + `${id_protocolo}`;
+      // Analisa a resposta JSON
+      response.json()
+      console
+    } else {
+      // Exibe uma mensagem de erro caso a requisição tenha falhado
+      console.log("Erro na requisição:", response.status);
+    }
+  });
+};
+
+
 const on_load_pesquisador = () => {
   axios
     .get(" http://localhost:1234/visualizar_protocolos/")

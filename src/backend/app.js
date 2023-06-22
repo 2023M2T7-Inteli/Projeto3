@@ -7,6 +7,7 @@ const path = require('path')
 
 const sqlite3 = require("sqlite3").verbose();
 const PATH = "../database/db_obyweb2.db";
+var id
 
 app.use(express.static("../frontend/"));
 app.use(express.json());

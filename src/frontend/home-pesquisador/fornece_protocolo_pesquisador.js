@@ -160,9 +160,6 @@ function openModal(id) {
 
 function closeModal() {
   document.getElementById("myModal").style.display = "none";
-  setTimeout(function(){
-    window.location.href = '/Home-pesquisador'
-}, 3000);
 }
 
 function deleteForm(id){
@@ -178,4 +175,7 @@ function deleteForm(id){
     });
 
   closeModal();
+  setTimeout(function(){
+    window.location.href = '/Home-pesquisador'
+}, 2000);
 }

@@ -84,6 +84,7 @@ header,
 .navbar-expand-lg .navbar .nav-link {
   padding: 1rem 0.8rem;
 }
+
 main {
   background-color: #ecf6e6;
   padding-left: 20px;
@@ -92,11 +93,13 @@ main {
   display: grid;
   justify-content: center;
 }
+
 .imagens_das_amostras {
   height: 100%;
   width: 100%;
   border-radius: 7px;
 }
+
 #coletas_abertas {
   display: grid;
   justify-content: center;
@@ -104,22 +107,20 @@ main {
   gap: 25px;
   padding-top: 20px;
   padding-bottom: 20px;
-  grid-template-columns: 1fr 1fr;
-
+  grid-template-columns: repeat(2, 1fr);
 }
+
 #coletas_enviadas {
   display: grid;
   justify-content: center;
   align-items: center;
   gap: 25px;
-  grid-template-columns: 1fr 1fr;
   padding-bottom: 20px;
   padding-top: 20px;
+  grid-template-columns: repeat(2, 1fr);
   opacity: 50%;
 }
-/* #coletas_enviadas:hover{
 
-  } */
 .amostra {
   position: relative;
   width: 100%;
@@ -128,9 +129,7 @@ main {
   border-radius: 7px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 }
-/* .imagens_das_amostras {
-    opacity: 95%;
-  } */
+
 .texto_das_amostras {
   height: 30%;
   width: 100%;
@@ -155,8 +154,34 @@ main {
   font-size: 14px;
   font-weight: bold;
 }
+
 .validade_amostra {
   font-size: 13px;
   font-weight: bold;
   margin-top: -10px;
+}
+
+/* Media queries para tornar o layout responsivo */
+
+@media screen and (max-width: 1333px) {
+
+  #coletas_abertas,
+  #coletas_enviadas {
+    grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media screen and (max-width: 768px) {
+
+  #coletas_abertas,
+  #coletas_enviadas {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 480px) {
+
+  #coletas_abertas,
+  #coletas_enviadas {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

@@ -42,7 +42,7 @@ const on_load_pesquisador = () => {
 
         let html = "";
 
-        html += `<div class="card">
+        html += `<div class="card" onclick="redirecionaHomeColetor(${protocolo.ID_PROTOCOLO})">
         <img src="img-protocolo.svg"  class="h-75" alt="Semente de Karité, protocolo 1" class="img-protocol">
     <div class="card-content">
         <div id="content">
@@ -114,7 +114,7 @@ function filtrar(){
 
         let html = "";
 
-        html += `<div class="card">
+        html += `<div class="card" onclick="redirecionaHomeColetor(${protocolo.ID_PROTOCOLO})">
         <img src="img-protocolo.svg"  class="h-75" alt="Semente de Karité, protocolo 1" class="img-protocol">
     <div class="card-content">
         <div id="content">
@@ -179,3 +179,31 @@ function deleteForm(id){
     window.location.href = '/Home-pesquisador'
 }, 2000);
 }
+
+function redirecionaHomeColetor(id_protocolo) {
+  // Cria um objeto com os dados do usuário
+  console.log(id_protocolo)
+  var data = {
+    "id_protocolo": id_protocolo
+  };
+  const url = '/visualizar_protocolo/' + `${id_protocolo}`; // Define a URL da rota do backend
+  // Envia uma requisição POST para o backend com os dados do usuário
+  fetch(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then((response) => {
+    // Verifica se a resposta da requisição foi bem-sucedida
+    if (response.ok) {
+      window.location.href = '/visualizar_protocolo/' + `${id_protocolo}`;
+      // Analisa a resposta JSON
+      response.json()
+      console
+    } else {
+      // Exibe uma mensagem de erro caso a requisição tenha falhado
+      console.log("Erro na requisição:", response.status);
+    }
+  });
+};
+

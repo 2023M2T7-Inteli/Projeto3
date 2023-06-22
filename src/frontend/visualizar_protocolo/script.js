@@ -79,22 +79,3 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(valor);
   });
 });
-
-// let dados = document.getElementsByClassName("resposta").value;
-//   console.log(dados);
-
-//sla oq e isso
-
-// const submeter_respostas = () => {
-//   const respostas = {};
-//   const inputs = document.getElementsByClassName("resposta");
-//   for (let i = 0; i < inputs.length; i++) {
-//     const pergunta = perguntas[i].PERGUNTA;
-//     const resposta = inputs[i].value;
-//     respostas[pergunta] = resposta;
-//   }
-//   console.log(respostas);
-//   // Aqui você pode enviar as respostas para o servidor usando o Axios ou outra biblioteca de requisição HTTP
-// };
-
-// //até aqui em cima funciona, agora vamo testar mandar as respostas

@@ -43,54 +43,65 @@
     </header>
 
     
-
-    <div id="1" class="container">
-        <section class="kanban"  data-bs-spy="scroll" data-bs-target="#1" data-bs-offset="0" class="scrollspy-example" tabindex="0">
-            <article id="funcionalities">
-
-                <div class="protocols">
-
-                    <h3 id="protocols-title"><strong>Protocolos</strong></h3>
-                    <a href="../novo_protocolo/" class="button" id="create-protocols">Novo protocolo</a>
-
+    <main>
+        <div id="1" class="container">
+            <section class="kanban"  data-bs-spy="scroll" data-bs-target="#1" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+                <article id="funcionalities">
+    
+                    <div class="protocols">
+    
+                        <h3 id="protocols-title"><strong>Protocolos</strong></h3>
+                        <a href="../novo_protocolo/" class="button" id="create-protocols">Novo protocolo</a>
+    
+                    </div>
+    
+                    <div class="filters">
+                        <h3 id="filters-title"><strong>Pesquisar</strong></h3>
+                        <input type="text" name="" id="input-pesquisa" placeholder="Insira nome ou ID">
+                        <i class="bi bi-search" onclick="filtrar()"></i>
+    
+                        <h3 id="filters-title"><strong>Filtros</strong></h3>
+    
+                        <div>
+                            <input type="checkbox" id="checkbox3" name="checkbox3" value="value3">
+                            <label for="checkbox3">Hoje</label>
+                        </div>
+                        
+                        <div>
+                            <input type="checkbox" id="checkbox1" name="checkbox1" value="value1">
+                            <label for="checkbox1">Nesta Semana</label>
+                        </div>
+    
+                        <div>
+                            <input type="checkbox" id="checkbox1" name="checkbox1" value="value1">
+                            <label for="checkbox1">Neste mês</label>
+                        </div>
+    
+                    </div>
+    
+                </article>
+                <article class="column">
+                    <div class="column-title"><strong>Protocolos Enviados</strong></div>
+                    <div id="cardEnviados"></div>
+                </article>
+                <article class="column">
+                    <div class="column-title"><strong>Protocolos Recebidos </strong> </div>
+                    <div id="cardRecebidos"></div>
+                </article>
                 </div>
+            </section>
+        </div>
 
-                <div class="filters">
-                    <h3 id="filters-title"><strong>Pesquisar</strong></h3>
-                    <input type="text" name="" id="input-pesquisa" placeholder="Insira nome ou ID">
-                    <i class="bi bi-search" onclick="filtrar()"></i>
-
-                    <h3 id="filters-title"><strong>Filtros</strong></h3>
-
-                    <div>
-                        <input type="checkbox" id="checkbox3" name="checkbox3" value="value3">
-                        <label for="checkbox3">Hoje</label>
-                    </div>
-                    
-                    <div>
-                        <input type="checkbox" id="checkbox1" name="checkbox1" value="value1">
-                        <label for="checkbox1">Nesta Semana</label>
-                    </div>
-
-                    <div>
-                        <input type="checkbox" id="checkbox1" name="checkbox1" value="value1">
-                        <label for="checkbox1">Neste mês</label>
-                    </div>
-
-                </div>
-
-            </article>
-            <article class="column">
-                <div class="column-title"><strong>Protocolos Enviados</strong></div>
-                <div id="cardEnviados"></div>
-            </article>
-            <article class="column">
-                <div class="column-title"><strong>Protocolos Recebidos </strong> </div>
-                <div id="cardRecebidos"></div>
-            </article>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+              <span class="modal-close" onclick="closeModal()">&times;</span>
+              <h3>Tem certeza que deseja apagar o protocolo?</h3>
+              <p>Após realizada, essa ação não pode ser desfeita</p>
+              <input type="hidden" id="id_hidden" value="">
+              <button onclick="deleteForm(document.getElementById('id_hidden').value)">Apagar</button>
             </div>
-        </section>
-    </div>
+        </div>
+    </main>
 
     <!-- Rodapé -->
     <footer>

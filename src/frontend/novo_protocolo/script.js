@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('nome-protocolo').innerHTML = nome_input_value;
     };
 
-    var descricao_input = document.getElementById("descricao-protocolo");
+    var descricao_input = document.getElementById("descricao-input");
     descricao_input.oninput = function() {
-        var descricao_input_value = document.getElementById('descricao-protocolo').value;
+        var descricao_input_value = document.getElementById('descricao-input').value;
         console.log(descricao_input_value)
         document.getElementById('descricao-protocolo').innerHTML = descricao_input_value;
     };

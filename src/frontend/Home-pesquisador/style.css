@@ -113,6 +113,14 @@ header,
   align-items: center;
 }
 
+.card-content {
+  display: flex;
+}
+
+.icon {
+  float: right;
+}
+
 /* KANBAN 
 .kanban {
   display: flex;
@@ -164,6 +172,54 @@ header,
 
 
 } */
+
+
+/* MODAL */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 300px;
+  text-align: center;
+}
+
+.modal-content h3 {
+  color: red;
+  font-size: 18px;
+}
+
+.modal-content p {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.modal-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 /* Estilos para dispositivos com largura de tela menor ou igual a 600 pixels */
 @media (max-width: 600px) {
@@ -411,7 +467,7 @@ header,
     color: white;
     padding: 7px;
   }
-}
+
 
 body {
   font-family: "Quicksand", sans-serif;

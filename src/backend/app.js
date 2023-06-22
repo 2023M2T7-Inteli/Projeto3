@@ -147,6 +147,22 @@ app.get("/remove_Usuario", urlencodedParser, (req, res) => {
   db.close(); // Fecha o banco
 });
 
+//  DELETAR CONTA DE UM USUÁRIO - LETRA D NO CRUD
+app.get("/remove_protocolo", urlencodedParser, (req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  sql = "DELETE FROM Protocolo WHERE ID_PROTOCOLO = ? ";
+  console.log(sql);
+  var db = new sqlite3.Database(PATH); // Abre o banco
+  db.run(sql, [req.query.id], (err) => {
+    if (err) {
+      throw err;
+    }
+    res.end();
+  });
+  db.close(); // Fecha o banco
+});
+
 app.post("/criar_protocolo", (req, res) => {
   var db = new sqlite3.Database(PATH); // Open the database
   var sql =

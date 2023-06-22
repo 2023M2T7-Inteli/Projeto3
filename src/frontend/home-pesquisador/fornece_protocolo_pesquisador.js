@@ -45,9 +45,14 @@ const on_load_pesquisador = () => {
         html += `<div class="card">
         <img src="img-protocolo.svg"  class="h-75" alt="Semente de Karité, protocolo 1" class="img-protocol">
     <div class="card-content">
+        <div id="content">
         <p class="card-title"><strong>${protocolo.NOME}</strong></p>
         <p class="card-date">${protocolo.DATA_LIMITE}</p>
         <p class="card-id"><strong>ID: ${protocolo.ID_PROTOCOLO}</strong></p>
+        </div>
+        <div id="icon">
+        <i class="bi bi-trash" onclick="openModal(${protocolo.ID_PROTOCOLO})"></i>
+        </div>
     </div>
     </div>`;
 
@@ -112,9 +117,14 @@ function filtrar(){
         html += `<div class="card">
         <img src="img-protocolo.svg"  class="h-75" alt="Semente de Karité, protocolo 1" class="img-protocol">
     <div class="card-content">
+        <div id="content">
         <p class="card-title"><strong>${protocolo.NOME}</strong></p>
         <p class="card-date">${protocolo.DATA_LIMITE}</p>
         <p class="card-id"><strong>ID: ${protocolo.ID_PROTOCOLO}</strong></p>
+        </div>
+        <div id="icon">
+        <i class="bi bi-trash" onclick="openModal(${protocolo.ID_PROTOCOLO})"></i>
+        </div>
     </div>
     </div>`;
 
@@ -141,4 +151,31 @@ function filtrar(){
     .catch((error) => {
       console.log(error);
     });
+}
+
+function openModal(id) {
+  document.getElementById("myModal").style.display = "block";
+  document.getElementById("id_hidden").value = id
+}
+
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+  setTimeout(function(){
+    window.location.href = '/Home-pesquisador'
+}, 3000);
+}
+
+function deleteForm(id){
+
+  axios
+    .get("http://localhost:1234/remove_protocolo",  {
+      params: {
+        id: id
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+  closeModal();
 }

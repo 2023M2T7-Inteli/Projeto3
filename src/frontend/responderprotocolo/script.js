@@ -22,7 +22,7 @@ const adiciona_pergunta = () => {
           case "text":
             html += `
       <div class="input-container">
-        <label for="resposta_${pergunta.ID}">${pergunta.PERGUNTA}</label><br><br>
+        <label for="resposta_${pergunta.ID}">${pergunta.PERGUNTA}</label><br>
         <input type="text" id="resposta_${pergunta.ID}" class="resposta">
       </div>
     `;
@@ -30,7 +30,7 @@ const adiciona_pergunta = () => {
           case "date":
             html += `
       <div class="input-container">
-        <label for="resposta_${pergunta.ID}">${pergunta.PERGUNTA}</label><br><br>
+        <label for="resposta_${pergunta.ID}">${pergunta.PERGUNTA}</label><br>
         <input type="date" id="resposta_${pergunta.ID}" class="resposta">
       </div>
     `;
@@ -38,7 +38,7 @@ const adiciona_pergunta = () => {
           case "number":
             html += `
       <div class="input-container">
-        <label for="resposta_${pergunta.ID}">${pergunta.PERGUNTA}</label><br><br>
+        <label for="resposta_${pergunta.ID}">${pergunta.PERGUNTA}</label><br>
         <input type="number" id="resposta_${pergunta.ID}" class="resposta">
       </div>
     `;
@@ -46,7 +46,7 @@ const adiciona_pergunta = () => {
           case "select":
             html += `
       <div class="input-container">
-        <label for="resposta_${pergunta.ID}">${pergunta.PERGUNTA}</label><br><br>
+        <label for="resposta_${pergunta.ID}">${pergunta.PERGUNTA}</label><br>
         <select id="resposta_${pergunta.ID}" class="resposta">
           <option value="opcao1">Opção 1</option>
           <option value="opcao2">Opção 2</option>

@@ -135,78 +135,38 @@ a:hover{
     background-color: rgba(176, 224, 230);
     color: black;
 }
-label{
+/* label{
     padding: 15px;
     position: absolute;
     z-index: 1;
-}
-
-
-/*protocolo*/
-/* .flex-container {
-    margin-top: 5%;
-    width: 100%;
-    height: auto;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.inline {
-    display: flex;
-}
-
-.row {
-    padding: 1rem;
-}
-
-.container2 {
-    max-width: 450px;
-    padding: 0 20px;
-    margin: auto;
-}
-
-.wrapper {
-    width: 100%;
-    border-radius: 5px;
-}
-
-p,
-li {
-    color: #36453A;
-    font-size: 14px;
-}
-
-.wrapper3 {
-    height: 20vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#enviar {
-    width: 10vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
 } */
 
 .input-container {
     text-align: center;
     margin-bottom: 10px;
 }
-
-/* .input-container label {
-    display: block;
-    margin-bottom: 5px;
-    margin:auto;
-} */
-
 .input-container input,
 .input-container select {
-    width: 100%;
+    width:75%;
     padding: 5px;
     border: 1px solid var(--gray-light);
     border-radius: 5px;
+}
+
+.wrapper3{
+    margin-top: 5%;
+}
+#enviar{
+    text-align: center;
+    margin:auto;
+    background-color: #599139;
+    color: white;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+}
+
+
+main{
+    text-align: center;
 }

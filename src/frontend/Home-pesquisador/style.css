@@ -197,6 +197,10 @@ header,
     height: 700px;
 
     padding: 24px;
+
+    overflow-y: auto;
+  
+
   }
 
   .button {
@@ -271,6 +275,8 @@ header,
     background-color: #ccc;
     border-radius: 10px;
     height: 700px;
+
+    overflow-y: auto;
   }
 
   #img-protocol1 {
@@ -282,7 +288,7 @@ header,
     display: flex;
     flex-direction: row;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 10px;
     padding: 10px;
   }
 
@@ -342,6 +348,8 @@ header,
     background-color: #ccc;
     border-radius: 10px;
     height: 700px;
+
+    overflow-y: auto;
   }
 
   #img-protocol {
@@ -355,16 +363,10 @@ header,
     display: flex;
     flex-direction: row;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 10px;
     padding: 10px;
   }
 
-  .card {
-    display: flex;
-    flex-direction: row;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 10px;
   }
 
   .card-content {
@@ -382,8 +384,19 @@ header,
     font-size: 12px;
     margin-left: 5px;
     background-color: #e8f9df;
-    border-radius: 4px;
+    border-radius: 10px;
     padding: 2px;
+    }
+
+  .card-id {
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 12px;
+    margin-left: 5px;
+    background-color: #e8f9df;
+    border-radius: 10px;
+    padding: 2px;
+
   }
 
   #create-protocols {

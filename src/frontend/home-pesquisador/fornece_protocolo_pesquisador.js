@@ -11,7 +11,7 @@ const on_load_pesquisador = () => {
       let array_html_enviadas = [];
 
       protocolos.forEach((protocolo) => {
-        const { nome, descricao, data_limite, estado } = protocolo;
+        const { id_protocolo, nome, descricao, data_limite, estado } = protocolo;
 
         let html = "";
 
@@ -20,6 +20,7 @@ const on_load_pesquisador = () => {
     <div class="card-content">
         <p class="card-title"><strong>${protocolo.NOME}</strong></p>
         <p class="card-date">${protocolo.DATA_LIMITE}</p>
+        <p class="card-id"><strong>ID: ${protocolo.ID_PROTOCOLO}</strong></p>
     </div>
     </div>`;
 

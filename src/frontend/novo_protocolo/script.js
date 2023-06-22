@@ -1,6 +1,21 @@
 var index = 0;
 var div
 
+document.addEventListener('DOMContentLoaded', function() {
+    var nome_input = document.getElementById("nome-input");
+    nome_input.oninput = function() {
+        var nome_input_value = document.getElementById('nome-input').value;
+        document.getElementById('nome-protocolo').innerHTML = nome_input_value;
+    };
+
+    var descricao_input = document.getElementById("descricao-protocolo");
+    descricao_input.oninput = function() {
+        var descricao_input_value = document.getElementById('descricao-protocolo').value;
+        console.log(descricao_input_value)
+        document.getElementById('descricao-protocolo').innerHTML = descricao_input_value;
+    };
+});
+
 
 // Adiciona um campo de pergunta na criação de protocolo
 

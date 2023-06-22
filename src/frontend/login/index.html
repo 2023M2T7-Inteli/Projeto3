@@ -21,7 +21,6 @@ Coletor: joao@gmail.com / 1234 -->
 </head>
 
 <body>
-  <script src="script.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -48,31 +47,34 @@ Coletor: joao@gmail.com / 1234 -->
       </nav>
     </div>
   </header>
-  <div class="container2">
-    <div class="wrapper">
-      <div class="img">
-        <img class="aumentaimg" src="img/logo.svg" alt="Obyweb logo">
-      </div>
-      <form id="login-form" action="#">
-        <div class="row">
-          <i class="bi bi-person-fill"></i>
-          <input id="email" type="email" placeholder="e-mail" required>
+  <main>
+    <div class="container2">
+      <div class="wrapper">
+        <div class="img">
+          <img class="aumentaimg" src="img/logo.svg" alt="Obyweb logo">
         </div>
-        <div class="row">
-          <i class="bi bi-key-fill"></i>
-          <input id="senha" type="password" placeholder="senha" required>
-        </div>
-        <div class="row button">
-          <button type="submit" onclick="Login()">Entrar</button>
-        </div>
-      </form>
+        <form id="login-form" action="#">
+          <div class="row">
+            <i class="bi bi-person-fill"></i>
+            <input id="email" type="email" placeholder="e-mail" required>
+          </div>
+          <div class="row">
+            <i class="bi bi-key-fill"></i>
+            <input id="senha" type="password" placeholder="senha" required>
+          </div>
+          <div class="row button">
+            <button type="submit" onclick="Login()">Entrar</button>
+          </div>
+        </form>
 
-      <div class="arvore">
-        <img class="arvore" src="img/arvore.png" alt="arvore">
+        <div class="arvore">
+          <img class="arvore" src="img/arvore.png" alt="arvore">
+        </div>
       </div>
     </div>
-  </div>
 
+    <div id="myToast" class="toast"></div>
+  </main>
   <!-- Rodapé -->
   <footer>
     <div id="contact-area"></div>

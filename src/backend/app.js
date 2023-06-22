@@ -68,7 +68,7 @@ app.get("/Usuario", (req, res) => {
 app.post("/login_Usuario", (req, res) => {
   const db = new sqlite3.Database(PATH);
 
-  const sql = `SELECT * FROM Usuario WHERE EMAIL = ? AND SENHA = ?`;
+  var sql = `SELECT * FROM Usuario WHERE EMAIL = ? AND SENHA = ?`;
 
   db.get(sql, [req.body.email, req.body.senha], (err, row) => {
     if (err) {
@@ -230,6 +230,20 @@ app.get("/visualizar_protocolos", (req, res) => {
       throw err;
     }
     res.json(rows);
+  });
+  db.close(); // Fecha o banco
+});
+
+app.get("/pesquisar_protocolos", (req, res) => {
+  var db = new sqlite3.Database(PATH); // Abre o banco
+  let sql = "SELECT * FROM PROTOCOLO WHERE ID_PROTOCOLO = ? OR NOME = ?";
+  console.log(sql);
+  db.all(sql, [req.query.input, req.query.input], (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    res.json(rows);
+    console.log(rows)
   });
   db.close(); // Fecha o banco
 });

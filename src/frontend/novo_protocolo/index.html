@@ -46,12 +46,21 @@
         <div id="main" class="row">
             <div id="controller" class="col-4 mx-auto">
 
-                <input type="text" name="" id="nome-protocolo" placeholder="Nome do protocolo">
-                <input type="date" name="" id="data-limite">
-                <textarea name="" id="descricao-protocolo" cols="33" rows="5" placeholder="Descrição do protocolo"></textarea>
+                <div id="protocol-info">
+                    <h2>Dados do formulário</h2>
+                    <div id="name-date">
+                        <input type="text" name="" id="nome-input" placeholder="Nome do protocolo">
+                        <input type="date" name="" id="data-limite">
+                    </div>
+                    
+                    <label for="descricao-protocolo">Descrição:</label>
+                    <textarea name="" id="descricao-protocolo" placeholder="Descrição do protocolo"></textarea>
+                </div>
                 
+                <hr class="hr hr-blurry">
+
                 <div id="questions-form" class="justify-content-center text-center">
-                    <h2>Insira as perguntas</h2>
+                    <h2>Perguntas</h2>
                 </div>
                 <div class="text-center">
                     <button id="add_question" onclick="add_question()">Adicionar pergunta</button>
@@ -69,10 +78,10 @@
 
             <div id="preview" class="col-8 mx-auto justify-content-center text-center">
                 <div id="name">
-                    <h2>Nome do Protocolo</h2>
+                    <h2 id="nome-protocolo"></h2>
                 </div>
                 <div id="desc" class="justify-content-center">
-                    <p class="text-center">Descrição do protocolo. Aqui, o pesquisador pode deixar anotações importantes para que os usuários não se esqueçam de algum detalhe na hora do envio de protocolo.</p>
+                    <p class="text-center" id="descricao-protocolo"></p>
                 </div>
                 <hr class="hr hr-blurry">
                 <div id="questions-preview">
@@ -137,7 +146,7 @@
         // Função chamada quando o formulário de login é submetido
         function enviarDatabase() {
             
-            var input_nome = document.querySelector('#nome-protocolo');
+            var input_nome = document.querySelector('#nome-input');
             var input_deadline = document.querySelector("#data-limite");
             var input_descricao = document.querySelector("#descricao-protocolo");
             var inputs_enunciados = document.getElementsByClassName("questions");
@@ -221,55 +230,3 @@
 
 </body>
 </html>
-
-
-
-
-<!-- TESTAR DEPOIS ENDPOINT NOVO AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-->
-
-<!-- app.post('/criar_protocolo', (req, res) => {
-    var db = new sqlite3.Database(PATH); // Abra o banco de dados
-  
-    var jsonFiles = ['arquivo1.json', 'arquivo2.json'];
-    var tabela1Sql = "INSERT INTO Tabela1 (campo1, campo2, campo3) VALUES (?, ?, ?)";
-    var tabela2Sql = "INSERT INTO Tabela2 (campo1, campo2, campo3) VALUES (?, ?, ?)";
-    var tabela3Sql = "INSERT INTO Tabela3 (campo1, campo2, campo3) VALUES (?, ?, ?)";
-  
-    jsonFiles.forEach(jsonFile => {
-      var jsonData = require(jsonFile); // Carrega o arquivo JSON
-  
-      jsonData.forEach(item => {
-        var tabelaDestino = item.tabela_destino;
-        var sql, values;
-  
-        switch (tabelaDestino) {
-          case 'tabela1':
-            sql = tabela1Sql;
-            values = [item.campo1, item.campo2, item.campo3];
-            break;
-          case 'tabela2':
-            sql = tabela2Sql;
-            values = [item.campo1, item.campo2, item.campo3];
-            break;
-          case 'tabela3':
-            sql = tabela3Sql;
-            values = [item.campo1, item.campo2, item.campo3];
-            break;
-          default:
-            console.log('Tabela de destino inválida para o item:', item);
-            return;
-        }
-  
-        db.run(sql, values, function(err) {
-          if (err) {
-            throw err;
-          }
-        
-          console.log(`Registro inserido com ID: ${this.lastID}`);
-        });
-      });
-    });
-  
-    db.close(); // Feche a conexão com o banco de dados
-    res.send('Dados inseridos com sucesso');
-  }); -->

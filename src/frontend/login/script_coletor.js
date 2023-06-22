@@ -38,12 +38,24 @@ function Login() {
           } else {
             // Exibe uma mensagem de erro
             console.log(data.message);
+            showToast()
           }
         });
       } else {
         // Exibe uma mensagem de erro caso a requisição tenha falhado
         console.log("Erro na requisição:", response.status);
+        showToast()
       }
     });
   });
+}
+
+function showToast() {
+  var toast = document.getElementById("myToast");
+  toast.innerHTML = "Usuário e/ou senha incorretos!";
+  toast.classList.add("show");
+  
+  setTimeout(function(){
+      toast.classList.remove("show");
+  }, 3000); //Controlar o tempo que o toast fica visível com esse número
 }

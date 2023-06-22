@@ -118,6 +118,22 @@ i {
   margin: 2rem 0;
 }
 
+#protocol-info {
+  margin: auto;
+  text-align: center;
+}
+
+#name-date {
+  display: flex;
+}
+
+textarea {
+  width: 100%;
+  background-color: var(--gray-dark);
+  border: 1px solid var(--gray-lighter);
+  margin-top: 1rem;
+}
+
 #add_question,
 #controller input {
   height: 36px;
@@ -128,16 +144,14 @@ i {
 
 #controller input {
   color: var(--white);
+  background-color: var(--gray-dark);
+  width: 75%;
 }
 
 button:focus {
   outline: 0;
 }
 
-#controller input {
-  background-color: var(--gray-dark);
-  width: 75%;
-}
 #add_question {
   margin: 5rem 0;
 }

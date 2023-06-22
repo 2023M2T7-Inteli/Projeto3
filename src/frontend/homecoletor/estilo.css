@@ -84,7 +84,7 @@ header,
 .navbar-expand-lg .navbar .nav-link {
   padding: 1rem 0.8rem;
 }
-
+/*cards dos protocolos*/
 main {
   background-color: #ecf6e6;
   padding-left: 20px;
@@ -184,4 +184,7 @@ main {
   #coletas_enviadas {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+h3{
+  text-align: center;
 }

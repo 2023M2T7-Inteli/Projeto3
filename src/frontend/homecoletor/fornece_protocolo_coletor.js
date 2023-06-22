@@ -72,3 +72,7 @@ axios
 function transformaPagina() {
 document.getElementById('')
 }
+
+function redireciona_responderProtocolo() {
+  window.location.pathname = "responderprotocolo/responderprotocolo.html";
+}

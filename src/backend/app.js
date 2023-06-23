@@ -325,8 +325,11 @@ app.get("/visualizar_responder_protocolo/:id", (req, res) => {
 });
 
 app.post("/responder_protocolo", (req, res) => {
+  //endpoint que manda o conteúdo de 'valor' e 'id_pergunta' para o banco de dados
   var db = new sqlite3.Database(PATH); // Abre o banco
-  let sql = `INSERT INTO Resposta (RESPOSTA) VALUES ("${req.body}")`;
+  var id_pergunta = req.body.id_pergunta;
+  var valor = req.body.valor;
+  let sql = `INSERT INTO Resposta (ID_PERGUNTA, RESPOSTA) VALUES ("${id_pergunta}", "${valor}")`;
   res.setHeader("Access-Control-Allow-Origin", "*");
   console.log(sql);
   db.all(sql, [], (err, rows) => {

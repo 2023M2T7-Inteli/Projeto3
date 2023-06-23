@@ -228,7 +228,5 @@ function update_preview(question, previewDivId, input_type) {
         var input_answer = document.createElement('input')
         input_answer.type = input_type
         previewDiv.appendChild(input_answer)
-        
-
     }
 }

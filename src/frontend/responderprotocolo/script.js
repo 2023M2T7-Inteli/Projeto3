@@ -1,7 +1,3 @@
-const on_load = () => {
-  adiciona_pergunta();
-};
-
 const adiciona_pergunta = () => {
   const path = window.location.pathname;
   const id_url = path.split("/").pop();
@@ -9,22 +5,21 @@ const adiciona_pergunta = () => {
   console.log("ID: ", id_url);
 
   axios
-    .get("http://localhost:1234/visualizar_perguntas/" + id_url)
+    .get("http://localhost:1234/visualizar_perguntas/" + id_url) //recebe as perguntas do endpoint /visualizar_perguntas
     .then((response) => {
       const perguntas = response.data;
       console.log(perguntas);
 
       perguntas.forEach((pergunta) => {
-        console.log("entra no loop");
+        //cria o html dos inputs dinamicamente
         console.log(pergunta);
-        //dá pra adicionar um if pro tipo da pergunta
         let html = "";
         switch (pergunta.TIPO_INPUT) {
           case "text":
             html += `
       <div class="input-container">
         <label for="resposta_${pergunta.ID}">${pergunta.PERGUNTA}</label><br>
-        <input type="text" id="resposta_${pergunta.ID}" class="resposta">
+        <input type="text" id="${pergunta.ID_PERGUNTA}" class="resposta">
       </div>
     `;
             break;
@@ -32,7 +27,7 @@ const adiciona_pergunta = () => {
             html += `
       <div class="input-container">
         <label for="resposta_${pergunta.ID}">${pergunta.PERGUNTA}</label><br>
-        <input type="date" id="resposta_${pergunta.ID}" class="resposta">
+        <input type="date" id="${pergunta.ID_PERGUNTA}" class="resposta">
       </div>
     `;
             break;
@@ -40,7 +35,7 @@ const adiciona_pergunta = () => {
             html += `
       <div class="input-container">
         <label for="resposta_${pergunta.ID}">${pergunta.PERGUNTA}</label><br>
-        <input type="number" id="resposta_${pergunta.ID}" class="resposta">
+        <input type="number" id="${pergunta.ID_PERGUNTA}" class="resposta">
       </div>
     `;
             break;
@@ -48,7 +43,7 @@ const adiciona_pergunta = () => {
             html += `
       <div class="input-container">
         <label for="resposta_${pergunta.ID}">${pergunta.PERGUNTA}</label><br>
-        <select id="resposta_${pergunta.ID}" class="resposta">
+        <select id="${pergunta.ID_PERGUNTA}" class="resposta">
           <option value="opcao1">Opção 1</option>
           <option value="opcao2">Opção 2</option>
           <option value="opcao3">Opção 3</option>
@@ -62,7 +57,7 @@ const adiciona_pergunta = () => {
         }
         console.log(pergunta.ID_PERGUNTA + " " + pergunta.PERGUNTA);
         console.log(html);
-        document.getElementById("perguntas").innerHTML += html;
+        document.getElementById("perguntas").innerHTML += html; //adiciona o html criado dinamicamente a página de responder protocolos
       });
     })
     .catch((error) => {
@@ -70,41 +65,25 @@ const adiciona_pergunta = () => {
     });
 };
 
-var valores = [];
 var botao = document.getElementById("enviar");
 
 botao.addEventListener("click", function () {
-  console.log("botao click");
+  //pega os valor e o id_pergunta de cada input no click do botão
   var inputs = document.getElementsByClassName("resposta");
+
   for (let i = 0; i < inputs.length; i++) {
+    //manda o valor e o id_pergunta para o endpoint /responder_protocolo um de cada vez
     var input = inputs[i];
     var valor = input.value;
-    console.log("input é " + valor);
-    valores.push(valor);
-  }
-  console.log(valores);
+    var id_pergunta = input.id;
 
-  const data = {}; //transormando array VALORES em objeto DATA
-  for (let i = 0; i < valores.length; i++) {
-    var chave = "chave" + (i + 1);
-    data[chave] = valores[i];
-  }
-  console.log(data);
-
-  // console.log(data.chave1)
-
-  for (let j = 0; j < valores.length; j++) {
-    console.log("aaa");
-    var atributo = "chave" + (j + 1);
     axios
-      .post("/responder_protocolo", data[atributo])
+      .post("/responder_protocolo", { id_pergunta: id_pergunta, valor: valor })
       .then((response) => {
-        console.log("acho que deu certo irmao");
+        console.log("enviou!");
       })
       .catch((error) => {
-        console.log("acho que deu erro irmao: " + error);
+        console.log(error);
       });
   }
 });
-
-//DATA precisa ser um objeto de objetos para passar tanto a resposta quanto o ID_PERGUNTA

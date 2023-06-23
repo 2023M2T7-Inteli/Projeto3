@@ -16,6 +16,7 @@ const adiciona_pergunta = () => {
 
       perguntas.forEach((pergunta) => {
         console.log("entra no loop");
+        console.log(pergunta);
         //dá pra adicionar um if pro tipo da pergunta
         let html = "";
         switch (pergunta.TIPO_INPUT) {
@@ -59,7 +60,7 @@ const adiciona_pergunta = () => {
             // Tipo de resposta desconhecido
             break;
         }
-
+        console.log(pergunta.ID_PERGUNTA + " " + pergunta.PERGUNTA);
         console.log(html);
         document.getElementById("perguntas").innerHTML += html;
       });
@@ -69,32 +70,41 @@ const adiciona_pergunta = () => {
     });
 };
 
-document.addEventListener("DOMContentLoaded", function () {
-  //peguei o valor do input vamoooo
-  var meuBotao = document.getElementById("enviar");
+var valores = [];
+var botao = document.getElementById("enviar");
 
-  meuBotao.addEventListener("click", function () {
-    var meuInput = document.getElementsByClassName("resposta")[0];
-    var valor = meuInput.value;
-    console.log(valor);
-  });
+botao.addEventListener("click", function () {
+  console.log("botao click");
+  var inputs = document.getElementsByClassName("resposta");
+  for (let i = 0; i < inputs.length; i++) {
+    var input = inputs[i];
+    var valor = input.value;
+    console.log("input é " + valor);
+    valores.push(valor);
+  }
+  console.log(valores);
+
+  const data = {}; //transormando array VALORES em objeto DATA
+  for (let i = 0; i < valores.length; i++) {
+    var chave = "chave" + (i + 1);
+    data[chave] = valores[i];
+  }
+  console.log(data);
+
+  // console.log(data.chave1)
+
+  for (let j = 0; j < valores.length; j++) {
+    console.log("aaa");
+    var atributo = "chave" + (j + 1);
+    axios
+      .post("/responder_protocolo", data[atributo])
+      .then((response) => {
+        console.log("acho que deu certo irmao");
+      })
+      .catch((error) => {
+        console.log("acho que deu erro irmao: " + error);
+      });
+  }
 });
 
-// let dados = document.getElementsByClassName("resposta").value;
-//   console.log(dados);
-
-//sla oq e isso
-
-// const submeter_respostas = () => {
-//   const respostas = {};
-//   const inputs = document.getElementsByClassName("resposta");
-//   for (let i = 0; i < inputs.length; i++) {
-//     const pergunta = perguntas[i].PERGUNTA;
-//     const resposta = inputs[i].value;
-//     respostas[pergunta] = resposta;
-//   }
-//   console.log(respostas);
-//   // Aqui você pode enviar as respostas para o servidor usando o Axios ou outra biblioteca de requisição HTTP
-// };
-
-// //até aqui em cima funciona, agora vamo testar mandar as respostas
+//DATA precisa ser um objeto de objetos para passar tanto a resposta quanto o ID_PERGUNTA

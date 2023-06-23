@@ -120,113 +120,31 @@
         </div>
     </footer>
 
-
-
     <script>
-
-        function showToast() {
-            var toast = document.getElementById("myToast");
-            toast.innerHTML = "Protocolo enviado!";
-            toast.classList.add("show");
-            
-            setTimeout(function(){
-                toast.classList.remove("show");
-                window.location.href = '/Home-pesquisador'
-            }, 3000);
-        }
-
-        // Variáveis que vão armazenar todos os dados para envio em formato de JSON
-        var protocolo_dados
-        var questao;
-        var imagens_array = []
-        var imagens
-
-        var data = []
-
-        // Função chamada quando o formulário de login é submetido
-        function enviarDatabase() {
-            
-            var input_nome = document.querySelector('#nome-input');
-            var input_deadline = document.querySelector("#data-limite");
-            var input_descricao = document.querySelector("#descricao-input");
-            var inputs_enunciados = document.getElementsByClassName("questions");
-            var inputs_datatype = document.getElementsByClassName("data_type");
-            var input_imagens = document.getElementsByClassName("images")
-
-            protocolo_dados = {
-                nome: input_nome.value,
-                data_limite: input_deadline.value,
-                descricao: input_descricao.value,
-                estado: 'Em aberto'
-            };
-            data.push(protocolo_dados);
-            
-            var tipo_resposta = [];
-
-            for (var i = 0; i < inputs_enunciados.length; i += 1) {
-                var pergunta = inputs_enunciados[i].value;
-                var tipo_resposta = inputs_datatype[i].value;
-
-                if(tipo_resposta === 'select'){
-
-                    var inputs_alternativas = document.getElementsByClassName("alternatives-question" + (i + 1));
-                    var alternativas = [];
-
-                    for (var j = 0; j < inputs_alternativas.length; j += 1) {
-                        alternativas.push(inputs_alternativas[j].value)
-                    }
-
-                    questao = {
-                    pergunta: pergunta,
-                    tipo_resposta: tipo_resposta,
-                    alternativas: alternativas,
-                    };
-
-                } else {
-                    questao = {
-                    pergunta: pergunta,
-                    tipo_resposta: tipo_resposta,
-                    alternativas:[],
-                    };
-                }
-
-                data.push(questao);
-            }
-
-            for (var i = 0; i < input_imagens.length; i += 1) {
-                var imagem = input_imagens[i].value;
-                imagens = {
-                    imagem: imagem,
-                }
-                imagens_array.push(imagens);
-            }
-            data.push(imagens_array);
-
-        }
-
         // Adiciona um ouvinte de evento ao formulário para capturar o evento de submissão
         document.getElementById("send-form").addEventListener("click", function(event) {
+            // Envio dos dados para o servidor utilizando a função fetch
             fetch('/criar_protocolo', {
                 method: 'POST',
                 headers: {
-                'Content-Type': 'application/json'
+                    'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify(data) // Converte o array "data" em JSON e o envia como corpo da requisição
             })
             .then(function(response) {
+                // Tratamento da resposta da requisição
                 if (response.ok) {
-                console.log('Dados enviados com sucesso para o banco de dados.');
-                showToast()
-                // Realizar ações adicionais após o envio dos dados
+                    console.log('Dados enviados com sucesso para o banco de dados.');
+                    showToast(); // Exibe uma mensagem de sucesso
+                    // Realizar ações adicionais após o envio dos dados
                 } else {
-                console.log('Ocorreu um erro ao enviar os dados para o banco de dados.');
+                    console.log('Ocorreu um erro ao enviar os dados para o banco de dados.');
                 }
             })
             .catch(function(error) {
-                console.log('Erro:', error);
+                console.log('Erro:', error); // Tratamento de erros durante a requisição
             });
         });
     </script>
-
 </body>
 </html>

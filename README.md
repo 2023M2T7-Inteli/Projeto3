@@ -133,28 +133,28 @@ https://www.youtube.com/watch?v=5VVkugmfRA4
   - Organização de pastas e arquivos
   - Adição 'npm start'
   - Update README
--3.0 - 12/06/2023
+- 3.0 - 12/06/2023
   - Criação da rota para responder protocolo
   - Update no app.js
   - Variáveis json para criar protocolo
--3.1 - 13/06/2023
+- 3.1 - 13/06/2023
   - Update responder protocolo
   - Home pesquisador
--3.2 - 15/06/2023
+- 3.2 - 15/06/2023
   - Update responder protocolo
--3.3 - 19/06/2023
+- 3.3 - 19/06/2023
   - Mudança no database
   - Update responder protocolo
   - Integração da página de criação de protocolos
   - Adição de toast
--3.4 - 21/06/2023
+- 3.4 - 21/06/2023
   - Update responder protocolo
--3.5 - 22/06/2023
+- 3.5 - 22/06/2023
   - Adição do scroll da home pesquisador
   - Adição de toast na página de login
   - Adição da barra de pesquisador
   - Visualização de protocolo por pesquisador
--4.0 - 23/06/2023
+- 4.0 - 23/06/2023
   - Delete protocolo
   - Correção do input img
   - Adição do endpoint visualizarprotocolo

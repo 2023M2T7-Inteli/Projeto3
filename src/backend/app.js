@@ -118,7 +118,7 @@ app.post("/atualizar_Usuario/atualizado", (req, res) => {
     '", senha="' +
     req.body.senha +
     '",  telefone= "' +
-    req.body.telefone +
+    req.body.telefone + 
     '" WHERE ID_Usuario=' +
     req.body.id_Usuario;
   db.all(sql, [], (err, rows) => {

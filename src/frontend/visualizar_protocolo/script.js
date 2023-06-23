@@ -13,16 +13,14 @@ const adiciona_pergunta = () => {
     .then((response) => {
       const perguntas = response.data;
       console.log(perguntas);
-
-      perguntas.forEach((pergunta) => {
-        console.log("entra no loop");
-        //dá pra adicionar um if pro tipo da pergunta
+// esse switch verifica cada resposta e monta o html de acordo com o tipo especificado
+      perguntas.forEach((pergunta) => {//um loop que monta um html para cada pergunta
         let html = "";
-        switch (pergunta.TIPO_INPUT) {
+        switch (pergunta.TIPO_INPUT) { // o switch avalia cada caso e monta o html de acordo
           case "text":
             html += `
       <div class="input-container">
-        <label for="resposta_${pergunta.ID}">${pergunta.PERGUNTA}</label><br><br>
+        <label for="resposta_${pergunta.ID}">${pergunta.PERGUNTA}</label><br>
         <input type="text" id="resposta_${pergunta.ID}" class="resposta">
       </div>
     `;
@@ -30,23 +28,23 @@ const adiciona_pergunta = () => {
           case "date":
             html += `
       <div class="input-container">
-        <label for="resposta_${pergunta.ID}">${pergunta.PERGUNTA}</label><br><br>
+        <label for="resposta_${pergunta.ID}">${pergunta.PERGUNTA}</label><br>
         <input type="date" id="resposta_${pergunta.ID}" class="resposta">
       </div>
     `;
             break;
-          case "number":
+          case "number": // se o tipo de resposta for um número
             html += `
       <div class="input-container">
-        <label for="resposta_${pergunta.ID}">${pergunta.PERGUNTA}</label><br><br>
+        <label for="resposta_${pergunta.ID}">${pergunta.PERGUNTA}</label><br>
         <input type="number" id="resposta_${pergunta.ID}" class="resposta">
       </div>
     `;
             break;
-          case "select":
+          case "select":// se o o tipo de pergunta for de selecionar
             html += `
       <div class="input-container">
-        <label for="resposta_${pergunta.ID}">${pergunta.PERGUNTA}</label><br><br>
+        <label for="resposta_${pergunta.ID}">${pergunta.PERGUNTA}</label><br>
         <select id="resposta_${pergunta.ID}" class="resposta">
           <option value="opcao1">Opção 1</option>
           <option value="opcao2">Opção 2</option>
@@ -68,33 +66,3 @@ const adiciona_pergunta = () => {
       console.log(error);
     });
 };
-
-document.addEventListener("DOMContentLoaded", function () {
-  //peguei o valor do input vamoooo
-  var meuBotao = document.getElementById("enviar");
-
-  meuBotao.addEventListener("click", function () {
-    var meuInput = document.getElementsByClassName("resposta")[0];
-    var valor = meuInput.value;
-    console.log(valor);
-  });
-});
-
-// let dados = document.getElementsByClassName("resposta").value;
-//   console.log(dados);
-
-//sla oq e isso
-
-// const submeter_respostas = () => {
-//   const respostas = {};
-//   const inputs = document.getElementsByClassName("resposta");
-//   for (let i = 0; i < inputs.length; i++) {
-//     const pergunta = perguntas[i].PERGUNTA;
-//     const resposta = inputs[i].value;
-//     respostas[pergunta] = resposta;
-//   }
-//   console.log(respostas);
-//   // Aqui você pode enviar as respostas para o servidor usando o Axios ou outra biblioteca de requisição HTTP
-// };
-
-// //até aqui em cima funciona, agora vamo testar mandar as respostas

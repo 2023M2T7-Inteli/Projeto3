@@ -241,3 +241,15 @@ form .row input:focus {
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
   }
+
+  #logando{
+    text-align: center;
+    margin: auto;
+    background-color: #599139;
+    color: white;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }

@@ -70,7 +70,8 @@ npm start
 
 4. Agora você pode acessar a aplicação através do link http://localhost:1234/
 5. O servidor está online.
-
+## Link para o vídeo
+https://www.youtube.com/watch?v=5VVkugmfRA4
 
 ## 🗃 Histórico de lançamentos
 
@@ -148,7 +149,22 @@ npm start
   - Adição de toast
 -3.4 - 21/06/2023
   - Update responder protocolo
-  - 
+-3.5 - 22/06/2023
+  - Adição do scroll da home pesquisador
+  - Adição de toast na página de login
+  - Adição da barra de pesquisador
+  - Visualização de protocolo por pesquisador
+-4.0 - 23/06/2023
+  - Delete protocolo
+  - Correção do input img
+  - Adição do endpoint visualizarprotocolo
+  - CSS da tela de responder protocolo
+  - CSS da tela home coletor
+  - Ajustes finais
+  - Organização das pastas
+  - Integração responder protocolo
+  - Modularização
+  - WAD V5
 
   
   
